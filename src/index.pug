@@ -38,3 +38,87 @@ html(lang="en")
                 +icon("scroll", "hero__btns")
 
         section.about
+          .container.about__container
+            .about__left
+              .user
+                .avatar.user__avatar
+                  +image("content/user.jpg", "avatar__pic")
+                ul.user__desk
+                  -
+                    var items = [
+                      ["Проживаю", "Санкт-Петербург"],
+                      ["Возраст", "24 года"],
+                      ["Родился", "11 декабря 1994 года"],
+                    ]
+                  each item in items
+                    li.user__desk-item
+                      .user__key #{item[0]}
+                      .user__value #{item[1]}
+            .about__right
+              h4.about__prolog Привет, меня зовут
+              h2.about__title Михаил Шаров
+              .about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+              .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освяжу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
+
+      .triangles
+        svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+          polygon(points="0,0 0,100 1000,100")
+        svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+          polygon(points="0,100 1000,100 1000,0")   
+
+      .values
+        .container
+          .values__title
+            h2.section-title Чем я могу быть полезен вам
+            .values__desk
+              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освяжу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
+        ul.user-skills  
+          - 
+            var skills = [
+              ["front-end", ["html5", "css3", "javascript", "jquery и vue.js"]],
+
+              ["workflow", ["git", "terminal", "gulp", "webpack"]],
+            ]
+          each item in skills 
+            li.user-skills__item.skills-row
+              h3.skills-row__title #{item[0]}
+              ul.skills-row__list
+                each skill in item[1]
+                  li.skills-row-_item
+                    .skill
+                      svg(viewBox="0 0 200 200" preserveAspectRatio="none").skill__shape
+                        circle(r="80" cx="100" cy="100").skill__circle.skill__circle--position--under
+                        circle(r="80" cx="100" cy="100").skill__circle.skill__circle--position--above
+                        linear-gradient()
+                      .skill__title #{skill}
+
+      .works
+        h2.section-title Мои работы
+        .works__left
+          .slider
+            img().slider__fillpic
+            .slider__preview
+              ul.previews
+                - for (var i = 0; i < 3; i++)
+                li.previews__item
+                  img.previews__pic
+            .slider__buttons
+              .slider__button
+                button.slider-buttons__item.slider-buttons__item--slide--prev
+                button.slider-buttons__item.slider-buttons__item--slide--next
+        .works__right
+          .works__tags
+            - var tags = ["html", "css", "javascript"]
+            each tag in tags
+              ul.tags
+                li.tags__item #{tag}
+          .works__text
+            h3.works__title Сайт школы образования
+            .works__desk-text
+              p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+            a.iconed-link
+              .iconed-link__icon
+              .iconed-link__text
+
+
+
