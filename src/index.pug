@@ -14,7 +14,7 @@ html(lang="en")
           .container.hero__container
             header.header.hero__header
               .hero__logo
-                .logo BA
+                .logo МШ
               .hero__menu
                 nav.nav
                   - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]                                                
@@ -69,29 +69,31 @@ html(lang="en")
 
       .values
         .container
-          .values__title
-            h2.section-title Чем я могу быть полезен вам
-            .values__desk
-              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освяжу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
-        ul.user-skills  
-          - 
-            var skills = [
-              ["front-end", ["html5", "css3", "javascript", "jquery и vue.js"]],
-
-              ["workflow", ["git", "terminal", "gulp", "webpack"]],
-            ]
-          each item in skills 
-            li.user-skills__item.skills-row
-              h3.skills-row__title #{item[0]}
-              ul.skills-row__list
-                each skill in item[1]
-                  li.skills-row-_item
-                    .skill
-                      svg(viewBox="0 0 200 200" preserveAspectRatio="none").skill__shape
-                        circle(r="80" cx="100" cy="100").skill__circle.skill__circle--position--under
-                        circle(r="80" cx="100" cy="100").skill__circle.skill__circle--position--above
-                        linear-gradient()
-                      .skill__title #{skill}
+          .values__desk
+            h2.values__title Чем я могу быть полезен вам
+          .values__desk
+            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освяжу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
+          .values__image
+          .values__charts
+            ul.user-skills  
+              - 
+                var skills = [
+                  { title: "Front-end", skills: [ { name: "HTML5", percent: 25 }, { name: "CSS3", percent: 15 }, { name: "JavaScript", percent: 75 }, { name: "Vue.js", percent: 25 }] },
+                  { title: "Worlflow", skills: [ { name: "GIT", percent: 15 }, { name: "Terminal", percent: 25 }, { name: "Gulp", percent: 50 }, { name: "Webpack", percent: 40 }] }
+                ]
+              each item in skills 
+                li.user-skills__item.skills-row
+                  h3.skills-row__title #{item.title}
+                  ul.skills-row__list
+                    each skill in item.skills
+                      li.skills-row-_item
+                        .skill
+                          svg.skill-chart(viewBox="0 0 100 100" preserveAspectRatio="none").skill__shape
+                            - var r = 40
+                            circle.skill__circle(r="40" cx="50" cy="50" fill= "transparent" stroke="#e9e9e9" stroke-width="5")
+                            circle.skill__circle(r="40" cx="50" cy="50" fill= "transparent" stroke="#4a00ed" stroke-width= "10" stroke-dasharray=`${2 * Math.PI * r}` stroke-dashoffset=`${2 * Math.PI * r * (100 - skill.percent) / 100}`)
+                            linear-gradient()
+                          .skill__name #{skill.name}
 
       .works
         h2.section-title Мои работы
