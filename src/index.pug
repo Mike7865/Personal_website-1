@@ -69,59 +69,37 @@ html(lang="en")
 
       .values
         .container
-          .values__desk
-            h2.values__title Чем я могу быть полезен вам
+          .values__title Чем я могу быть полезен вам
           .values__desk
             p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освяжу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
           .values__image
+            +image("content/backpack.png")
           .values__charts
-            ul.user-skills  
+            ul.skills  
               - 
                 var skills = [
                   { title: "Front-end", skills: [ { name: "HTML5", percent: 25 }, { name: "CSS3", percent: 15 }, { name: "JavaScript", percent: 75 }, { name: "Vue.js", percent: 25 }] },
                   { title: "Worlflow", skills: [ { name: "GIT", percent: 15 }, { name: "Terminal", percent: 25 }, { name: "Gulp", percent: 50 }, { name: "Webpack", percent: 40 }] }
                 ]
               each item in skills 
-                li.user-skills__item.skills-row
-                  h3.skills-row__title #{item.title}
-                  ul.skills-row__list
-                    each skill in item.skills
-                      li.skills-row-_item
-                        .skill
-                          svg.skill-chart(viewBox="0 0 100 100" preserveAspectRatio="none").skill__shape
-                            - var r = 40
-                            circle.skill__circle(r="40" cx="50" cy="50" fill= "transparent" stroke="#e9e9e9" stroke-width="5")
-                            circle.skill__circle(r="40" cx="50" cy="50" fill= "transparent" stroke="#4a00ed" stroke-width= "10" stroke-dasharray=`${2 * Math.PI * r}` stroke-dashoffset=`${2 * Math.PI * r * (100 - skill.percent) / 100}`)
-                            linear-gradient()
-                          .skill__name #{skill.name}
+                .skills-row
+                  li.skills-row__group
+                    h3.skills-row__title #{item.title}
+                    ul.skills-row__items
+                      each skill in item.skills
+                        li.skills-row__item
+                          .skill
+                            svg.skill-chart(viewBox="0 0 100 100" preserveAspectRatio="none")
+                              - var r = 40
+                              circle.skill__circle(r="40" cx="50" cy="50" fill= "transparent" stroke="#e9e9e9" stroke-width="5")
+                              circle.skill__circle(r="40" cx="50" cy="50" fill= "transparent" stroke="#4a00ed" stroke-width= "10" stroke-dasharray=`${2 * Math.PI * r}` stroke-dashoffset=`${2 * Math.PI * r * (100 - skill.percent) / 100}`)
+                              linearGradient#gradient
+                                stop(offset="0%" stop-color="#9300e8")
+                                stop(offset="100%" stop-color="#4a00ed")
+                            .skill__name #{skill.name}
 
-      .works
-        h2.section-title Мои работы
-        .works__left
-          .slider
-            img().slider__fillpic
-            .slider__preview
-              ul.previews
-                - for (var i = 0; i < 3; i++)
-                li.previews__item
-                  img.previews__pic
-            .slider__buttons
-              .slider__button
-                button.slider-buttons__item.slider-buttons__item--slide--prev
-                button.slider-buttons__item.slider-buttons__item--slide--next
-        .works__right
-          .works__tags
-            - var tags = ["html", "css", "javascript"]
-            each tag in tags
-              ul.tags
-                li.tags__item #{tag}
-          .works__text
-            h3.works__title Сайт школы образования
-            .works__desk-text
-              p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-            a.iconed-link
-              .iconed-link__icon
-              .iconed-link__text
+      include components/works
+       
 
 
 
