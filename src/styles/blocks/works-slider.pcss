@@ -1,30 +1,31 @@
 .works-slider {
-    display: flex;
+  display: flex;
+  max-width: 1500px;
+
+  @include desktop {
+    flex-direction: column;
+  }
+
+  &__display {
+    flex-grow: 1;
+  }
+
+  &__info {
+    width: 345px;
+    flex-shrink: 0;
 
     @include desktop {
-        flex-direction: column;
+      align-self: center;
+      width: 600px;
+      margin-top: 60px;
     }
 
-    &__display {
-        flex-grow: 1;
+    @include tablets {
+      width: 450px;
     }
-    
-    &__info {
-        width: 345px;
-        flex-shrink: 0;
 
-        @include desktop {
-            align-self: center;
-            width: 600px;
-            margin-top: 60px;
-        }
-
-        @include tablets {
-            width: 450px;
-        }
-
-        @include phones {
-            padding: 0 30px;
-        }
+    @include phones {
+      padding: 0 30px;
     }
+  }
 }

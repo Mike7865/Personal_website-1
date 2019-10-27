@@ -5,3 +5,11 @@ mixin icon(name, className)
 
 mixin image(path, className)
   img(src=require(`images/${path}`) class=className)
+
+mixin socials(mod)
+  - var icons =  ["insta", "vk", "github"] 
+    ul.socials
+      each item in icons
+        li.socials__item(class=`${mod ? 'socials__item_' + mod : ''}`)
+          a(href="").socials__link
+            +icon(`${item}`, "socials__icon")

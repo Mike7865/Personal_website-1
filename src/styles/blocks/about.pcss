@@ -1,47 +1,59 @@
 .about {
-    padding-bottom: 120px;
+  padding-bottom: 120px;
 }
 
 .about__container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
 }
 
 .about__left {
-    width: 300px;
-    margin-right: 118px;
-    margin-left: 255px;
-    flex-shrink: 0;
+  width: 300px;
+  margin-right: 118px;
+  margin-left: 255px;
+  flex-shrink: 0;
 }
 
 .about__prolog {
-    font-size: 16px;
-    font-weight: 600;
-    color: rgba(70, 77, 98, 0.5);
-    padding-bottom: 30px;
-    line-height: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(70, 77, 98, 0.5);
+  padding-bottom: 30px;
+  line-height: 30px;
 }
 
 .about__title {
-    font-size: 36px;
-    font-weight: 700;
-    color: #464d62;
-    padding-bottom: 38px;
-    line-height: 48px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #464d62;
+  padding-bottom: 38px;
+  line-height: 48px;
 }
 
 .about__text {
-    font-size: 16px;
-    font-weight: 600;
-    color: rgba(70, 77, 98, 0.5);
-    padding-bottom: 105px;
-    line-height: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(70, 77, 98, 0.5);
+  padding-bottom: 105px;
+  line-height: 30px;
 }
 
 .about__ps {
-    font-size: 16px;
+  position: relative;
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(70, 77, 98, 0.5);
+  line-height: 30px;
+
+  &::after {
+    position: absolute;
+    content: '*';
+    top: 0;
+    right: 100%;
+    color: rgba($danger-color, 0.1);
+    font-size: 48px;
     font-style: italic;
-    color: rgba(70, 77, 98, 0.5);
-    line-height: 30px;
+    transform: translate(-30px, 50%);
+  }
 }

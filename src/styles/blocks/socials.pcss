@@ -1,19 +1,28 @@
 .socials {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .socials__item {
-    margin-right: 40px;
+  margin-right: 40px;
 
-    &:last-child {
-        margin-right: 0;
-    }
+  &_bordered {
+    border: 1px solid $text-color;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .socials__icon {
-    width: 28px;
-    height: 31px;
-    display: block;
-}
+  display: block;
+  width: 28px;
+  height: 31px;
+  fill: $text-color;
+  transition: fill 0.2s ease;
 
+  &:hover {
+    fill: $accent-color;
+  }
+}
