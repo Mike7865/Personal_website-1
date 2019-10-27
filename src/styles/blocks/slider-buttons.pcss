@@ -1,14 +1,27 @@
-.slider-buttons__button {
+.slider-buttons {
+  &__button {
     width: 50px;
     height: 50px;
-}
+    background-color: $slider-buttons-bg;
+    transition: background-color 0.2s ease;
+    border: none;
 
-.slider-buttons__icon_prev {
+    &:hover {
+      background-color: $accent-color;
+    }
+  }
+
+  &__icon {
+    fill: white;
+    width: 10px;
+    height: 8px;
+  }
+
+  &__icon_prev {
     transform: rotate(-90deg);
-}
+  }
 
-.slider-buttons__icon_next {
+  &__icon_next {
     transform: rotate(90deg);
+  }
 }
-
-

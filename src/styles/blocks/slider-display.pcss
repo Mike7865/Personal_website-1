@@ -1,0 +1,42 @@
+.slider-display {
+  position: relative;
+  height: 550px;
+
+  &::after {
+    position: absolute;
+    content: attr(data-slide);
+    top: 0;
+    right: 0;
+    color: $text-light-color;
+    font-size: 400px;
+    line-height: 1;
+    font-weight: 800;
+  }
+
+  $offset-right: 157px;
+
+  &__current-slide {
+    position: relative;
+    z-index: 1;
+    margin-right: $offset-right;
+    height: 100%;
+  }
+
+  &__current-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__buttons {
+    position: absolute;
+    right: $offset-right;
+  }
+
+  &__thumbs {
+    position: absolute;
+    right: $offset-right;
+    bottom: 0;
+    z-index: 1;
+  }
+}

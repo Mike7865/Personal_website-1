@@ -1,0 +1,30 @@
+.reviews {
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+  &__button {
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: 1px solid $text-color;
+    border-radius: 50%;
+
+    &:hover {
+      border-color: $accent-color;
+      .reviews__button-icon {
+        fill: $accent-color;
+      }
+    }
+  }
+
+  &__button-icon {
+    width: 10px;
+    height: 8px;
+    fill: $text-color;
+
+    &_prev {
+      transform: rotate(180deg);
+    }
+  }
+}
