@@ -7,4 +7,23 @@
       button.reviews__button
         +icon("arrow-down", "reviews__button-icon reviews__button-icon_next")
   .reviews__body
-    .reviews__item
+    .reviews-opinion
+      .reviews-opinion__quotes
+        +icon("quote", "quote__icon")
+        .quotes__text
+          p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+        .quotes__reviewer
+          .reviwer__image
+            
+          .reviwer__name Дмитрий Ковальчук
+          .reviwer__position Основатель LoftSchool
+    .reviews-opinion
+      .reviews-opinion__quotes
+        +icon("quote", "quote__icon")
+        .quotes__text
+          p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+        .quotes__reviewer
+          .reviwer__image 
+            
+          .reviwer__name Владимир Сабанцев
+          .reviwer__position Преподаватель 

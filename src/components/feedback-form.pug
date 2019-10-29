@@ -1,1 +1,19 @@
-form.feedback-form form
+form.feedback-form 
+  .feedback-form__title Связаться со мной
+  .feedback-form__row
+    .feedback-form__control
+      label(form="name") Введите ваше имя
+      input.feedback-form__input(id="name")
+      .feedback-form__icon
+        
+    .feedback-form__control
+      label(form="email") Введите ваш email
+      input.feedback-form__input(id="email")
+      .feedback-form__icon
+        
+  .feedback-form__control
+    label(form="message") Сообщение к письму
+    textarea.feedback-form__input(id="message")
+    .feedback-form__icon
+      
+    
