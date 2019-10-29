@@ -1,5 +1,5 @@
 .feedback-form {
-    display: flex;
+    margin-top: 202px;
 }
 
 .feedback-form__title {
@@ -8,6 +8,7 @@
     font-size: 36px;
     font-weight: 700;
     padding-bottom: 92px;
+    margin-left: 160px;
 }
 
 .feedback-form__row {
@@ -21,7 +22,60 @@ label {
   line-height: 30px;
 }
 
-
 .feedback-form__control {
     position: relative;
+}
+
+.form__elem {
+    margin-left: 160px;
+    margin-bottom: 134px;
+}
+
+.form__row {
+    display: flex;
+
+    &--extra-margin {
+        margin-bottom: 60px;
+    }
+}
+
+.form-block{
+    margin-bottom: 41px;
+    padding-right: 70px;
+}
+
+.form-block__icon {
+    width: 30px;
+    height: 30px;
+    fill: rgba(70, 77, 98, 0.3);
+}
+
+.form-block__input {
+    font-size: 18px;
+    font-weight: 700;
+    color: text-color;
+    line-height: 36px;
+    border-bottom: 1px text-color;
+}
+
+.data-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(70, 77, 98, 0.3);
+  line-height: 30px;
+}
+
+.gradient-btn {
+    width: 347px;
+    height: 80px;
+    padding: 20px 50px;
+    color: white;
+    border: none;
+    border-radius: 25px 0 25px 0;
+    background-image: linear-gradient(to right, #9300e8, #4a00ed);
+    cursor: pointer;
+
+    &:hover {
+      background-image: linear-gradient(to right, violet, blue);
+    }
 }
