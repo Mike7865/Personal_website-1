@@ -3,7 +3,7 @@
 }
 
 .feedback-form__title {
-    color: text-color;
+    color: $text-color;
     line-height: 48px;
     font-size: 36px;
     font-weight: 700;
@@ -39,9 +39,19 @@ label {
     }
 }
 
-.form-block{
+.form-block {
     margin-bottom: 41px;
     padding-right: 70px;
+    
+    &::before {
+      content: attr(data-title);
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(70, 77, 98, 0.3);
+      line-height: 30px;
+      padding-left: 35px;
+      padding-bottom: 30px;
+    }
 }
 
 .form-block__icon {
@@ -53,16 +63,10 @@ label {
 .form-block__input {
     font-size: 18px;
     font-weight: 700;
-    color: text-color;
+    color: $text-color;
     line-height: 36px;
-    border-bottom: 1px text-color;
-}
-
-.data-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(70, 77, 98, 0.3);
-  line-height: 30px;
+    border-bottom: 1px solid $text-color;
+    padding-left: 35px;
 }
 
 .gradient-btn {
@@ -70,6 +74,9 @@ label {
     height: 80px;
     padding: 20px 50px;
     color: white;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 48px;
     border: none;
     border-radius: 25px 0 25px 0;
     background-image: linear-gradient(to right, #9300e8, #4a00ed);
