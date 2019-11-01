@@ -9,85 +9,13 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .welcome-section
-        section.hero#main
-          .container.hero__container
-            header.header.hero__header
-              .hero__logo
-                .logo МШ
-              .hero__menu
-                include components/nav
-              .hero__links
-                +socials()
-            .hero__content
-              .user-info
-                h1.user-info__desk Личный сайт веб-разработчика
-                .user-info__username Михаил Шаров
-            a.hero__btns(href="#about")
-              .scroll-down__name Скролл
-              .scroll-down-btns 
-                +icon("scroll", "scroll-down-btns")
-
-        section.about#about
-          .container.about__container
-            .about__left
-              .user
-                .avatar.user__avatar
-                  +image("content/user.jpg", "avatar__pic")
-                table.user__desk
-                  -
-                    var items = [
-                      ["Проживаю:", "Санкт-Петербург"],
-                      ["Возраст:", "24 года"],
-                      ["Родился:", "11 декабря 1994 года"],
-                    ]
-                  each item in items
-                    tr.user__desk-item
-                      td.user__key #{item[0]}
-                      td.user__value #{item[1]}
-            .about__right
-              h4.about__prolog Привет, меня зовут
-              h2.about__title Михаил Шаров
-              .about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-              .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освяжу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
-
+      include components/welcome-section
       .triangles
         svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
           polygon(points="0,0 0,100 1000,100")
         svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
           polygon(points="0,100 1000,100 1000,0")   
-
-      .values#skills
-        .container
-          .values__title Чем я могу быть полезен вам
-          .values__desk
-            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освяжу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
-          .values__image
-            +image("content/backpack.png")
-          .values__charts
-            ul.skills  
-              - 
-                var skills = [
-                  { title: "Front-end", skills: [ { name: "HTML5", percent: 25 }, { name: "CSS3", percent: 15 }, { name: "JavaScript", percent: 75 }, { name: "Vue.js", percent: 25 }] },
-                  { title: "Worlflow", skills: [ { name: "GIT", percent: 15 }, { name: "Terminal", percent: 25 }, { name: "Gulp", percent: 50 }, { name: "Webpack", percent: 40 }] }
-                ]
-              each item in skills 
-                .skills-row
-                  li.skills-row__group
-                    h3.skills-row__title #{item.title}
-                    ul.skills-row__items
-                      each skill in item.skills
-                        li.skills-row__item
-                          .skill
-                            svg.skill-chart(viewBox="0 0 100 100" preserveAspectRatio="none")
-                              - var r = 40
-                              circle.skill__circle(r="40" cx="50" cy="50" fill= "transparent" stroke="#e9e9e9" stroke-width="6")
-                              circle.skill__circle(r="40" cx="50" cy="50" fill= "transparent" stroke="#4a00ed" stroke-width= "10" stroke-dasharray=`${2 * Math.PI * r}` stroke-dashoffset=`${2 * Math.PI * r * (100 - skill.percent) / 100}`)
-                              linearGradient#gradient
-                                stop(offset="0%" stop-color="#4a00ed")
-                                stop(offset="100%" stop-color="#9300e8")
-                            .skill__name #{skill.name}
-
+      include components/values
       include components/works
       .triangles.triangles__reverse
         svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
