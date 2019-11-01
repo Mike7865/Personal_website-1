@@ -1,0 +1,112 @@
+.reviews {
+  width: 1030px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding-top: 200px;
+  }
+
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    color: $text-color;
+    line-height: 48px;
+  }
+
+  &__buttons {
+    margin-left: 122px;
+    display: flex;
+  }
+
+  &__button {
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: 1px solid $text-color;
+    border-radius: 50%;
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      border-color: $accent-color;
+      .reviews__button-icon {
+        fill: $accent-color;
+      }
+    }
+  }
+
+  &__button-icon {
+    width: 8px;
+    height: 10px;
+    fill: $text-color;
+
+    &_prev {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.reviews__body {
+  display: flex;
+  align-items: stretch;
+}
+
+.reviews-opinion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  margin-top: 101px;
+  margin-right: 84px;
+}
+
+.reviews-opinion__quotes {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.quotes__item {
+  flex-shrink: 0;
+  width: 75px;
+  height: 63px;
+  margin-right: 21px;
+}
+
+.quote__icon {
+  fill: #e9e9e9;
+}
+
+.quotes__text {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(70, 77, 98, 0.5);
+  line-height: 30px;
+}
+
+.quotes__reviewer {
+  display: flex;
+  //padding-top: 32px;
+  margin-left: 105px;
+}
+
+.reviwer__info {
+  margin-left: 31px;
+}
+
+.reviwer__name {
+  font-size: 18px;
+  font-weight: 700;
+  color: $text-color;
+  line-height: 48px;
+}
+
+.reviwer__position {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(70, 77, 98, 0.3);
+  line-height: 30px;
+}

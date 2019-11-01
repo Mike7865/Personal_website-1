@@ -1,0 +1,22 @@
+.nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.nav__item {
+  margin-right: 62px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.nav__link {
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    font-weight: 600;
+    color: $accent-color;
+  }
+}

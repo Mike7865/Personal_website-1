@@ -1,0 +1,63 @@
+.about {
+  padding-top: 150px;
+  padding-bottom: 178px;
+}
+
+.about__container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.about__left {
+  width: 300px;
+  margin-right: 118px;
+  flex-shrink: 0;
+}
+
+.about__right {
+  max-width: 528px;
+}
+
+.about__prolog {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(70, 77, 98, 0.5);
+  padding-bottom: 30px;
+  line-height: 30px;
+}
+
+.about__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #464d62;
+  padding-bottom: 38px;
+  line-height: 48px;
+}
+
+.about__text {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(70, 77, 98, 0.5);
+  padding-bottom: 80px;
+  line-height: 30px;
+}
+
+.about__ps {
+  position: relative;
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(70, 77, 98, 0.5);
+  line-height: 30px;
+
+  &::after {
+    position: absolute;
+    content: '*';
+    top: 0;
+    right: 100%;
+    color: rgba($danger-color, 0.1);
+    font-size: 48px;
+    font-style: italic;
+    transform: translate(-30px, 50%);
+  }
+}

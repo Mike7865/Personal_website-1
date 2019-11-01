@@ -1,0 +1,55 @@
+.hero {
+  height: 100vh;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: 800;
+    color: #464d62;;
+}
+
+.hero__container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.hero__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero__menu {
+    margin: 0 20px;
+}
+
+.hero__header {
+    padding-top: 40px;
+}
+ 
+.hero__content {
+    flex: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    padding-bottom: 70px;
+    text-decoration: none; 
+
+    &:hover {
+        .scroll-down__name {
+          color: $accent-color;
+        }
+
+        .scroll-down-btns {
+          fill: $accent-color;
+        }
+    }
+}

@@ -1,6 +1,10 @@
 {
-  "text-color": "#414c63",
+  "danger-color": "#db0200",
+  "accent-color": "#5500f2",
+  "text-light-color": "#e6e6e6",
+  "text-color": "#464d62",
   "links-color": "#4b6fd7",
+  "slider-buttons-bg": "#353e4e",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
   "bp-tablets": "768px",

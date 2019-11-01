@@ -1,0 +1,64 @@
+.socials {
+  display: flex;
+  align-items: center;
+}
+
+.socials__item {
+  margin-right: 40px;
+
+  &:hover {
+    .socials__icon {
+      fill: $accent-color;
+    }
+  }
+
+  &_bordered {
+    margin-right: 20px;
+    border: 1px solid $text-color;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+
+    &:hover {
+      border-color: $accent-color;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.socials__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.socials__icon {
+  display: block;
+  width: 28px;
+  height: 31px;
+  fill: $text-color;
+  transition: fill 0.2s ease;
+}
+
+.socials__item_bordered {
+  
+  .socials__icon_insta {
+    width: 20px;
+    height: 20px;
+  }
+
+  .socials__icon_vk {
+    width: 25px;
+    height: 25px;
+  }
+
+  .socials__icon_github {
+    width: 22px;
+    height: 22px;
+  }
+
+}
