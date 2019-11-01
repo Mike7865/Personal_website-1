@@ -1,5 +1,5 @@
 .reviews {
-  margin-top: 264px;
+  width: 1030px;
 
   &__header {
     display: flex;
@@ -10,9 +10,8 @@
   &__title {
     font-size: 36px;
     font-weight: 700;
-    color: text-color;
+    color: $text-color;
     line-height: 48px;
-    margin-left: 163px;
   }
 
   &__buttons {
@@ -53,23 +52,28 @@
 
 .reviews__body {
   display: flex;
-  //position: relative;
+  align-items: stretch;
 }
 
 .reviews-opinion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
   margin-top: 101px;
-  margin-left: 84px;
+  margin-right: 84px;
 }
 
 .reviews-opinion__quotes {
   display: flex;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .quotes__item {
-  width: 125px;
-  height: 113px;
-  padding-right: 21px;
+  flex-shrink: 0;
+  width: 75px;
+  height: 63px;
+  margin-right: 21px;
 }
 
 .quote__icon {
@@ -96,7 +100,7 @@
 .reviwer__name {
   font-size: 18px;
   font-weight: 700;
-  color: text-color;
+  color: $text-color;
   line-height: 48px;
 }
 

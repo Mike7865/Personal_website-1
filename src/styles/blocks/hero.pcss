@@ -27,7 +27,7 @@
 .hero__header {
     padding-top: 40px;
 }
-
+ 
 .hero__content {
     flex: 1px;
     display: flex;
@@ -40,6 +40,16 @@
     align-items: center;
     justify-content: center;
     padding: 50px 0;
-    padding-bottom: 178px;
+    padding-bottom: 70px;
     text-decoration: none; 
+
+    &:hover {
+        .scroll-down__name {
+          color: $accent-color;
+        }
+
+        .scroll-down-btns {
+          fill: $accent-color;
+        }
+    }
 }

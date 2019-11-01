@@ -1,18 +1,20 @@
 .footer {
-  display: flex;
-  height: 407px;
+  padding: 100px 0;
   background-color: #252830;
+
+  &__container {
+    display: flex;
+    max-width: 1435px;
+    margin: 0 auto;
+  }
 
   &__info {
     display: flex;
-    margin-top: 100px;
-    margin-left: 161px;
     margin-right: 140px;
   }
 
   &__main {
-    margin-top: 100px;
-    margin-right: 156px;
+
   }
 
   &__menu {
@@ -30,8 +32,7 @@
   font-size: 48px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.1);
-  padding-bottom: 268px;
-  line-height: 30px;
+  line-height: 1;
   white-space: nowrap;
   padding-right: 60px;
 }
@@ -42,22 +43,23 @@
   color: #fff;
   padding-bottom: 34px;
   line-height: 30px;
+  text-transform: uppercase;
 }
 
 .footer__site-description {
   font-size: 16px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.15);
-  padding-bottom: 179px;
   line-height: 30px;
+  white-space: nowrap;
 }
 
-//.footer__content {
-  //padding-top: 70px;
-//}
+.footer__content {
+  padding-top: 70px;
+}
 
 .footer__about-info {
-  padding-top: 70px;
+  
 }
 
 .footer__text {
@@ -69,18 +71,17 @@
 }
 
 .footer__quote {
-  //flex-direction: column;
-  padding-top: 53px;
   padding-left: 63px;
 
 }
 
 .footer__quote-text {
+  margin: 0;
   font-size: 16px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.3);
-  //padding-bottom: 27px;
   line-height: 30px;
+  margin-bottom: 35px;
 }
 
 .footer__quote-author {
@@ -88,7 +89,5 @@
   font-weight: 400;
   font-style: italic;
   color: #fff;
-  //padding-bottom: 100px;
-  padding-left: 38px;
   line-height: 30px;
 }

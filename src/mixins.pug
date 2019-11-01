@@ -12,4 +12,4 @@ mixin socials(mod)
       each item in icons
         li.socials__item(class=`${mod ? 'socials__item_' + mod : ''}`)
           a(href="").socials__link
-            +icon(`${item}`, "socials__icon")
+            +icon(`${item}`, `socials__icon  socials__icon_${item}`)

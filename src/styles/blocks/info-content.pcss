@@ -4,10 +4,10 @@
 
 .info-skill__item {
   margin-right: 15px;
-  border-radius: 30%;
+  border-radius: 23px;
   background-color: #e9e9e9;
-  width: 83px;
-  height: 45px;
+  line-height: 45px;
+  padding: 0 22px;
   margin-bottom: 50px;
 
   &:last-child {
@@ -28,7 +28,7 @@
 .info-content__title {
   font-size: 30px;
   font-weight: 700;
-  color: text-color;
+  color: $text-color;
   padding-bottom: 44px;
   line-height: 48px;
 }
@@ -39,6 +39,11 @@
   color: rgba(70, 77, 98, 0.7);
   padding-bottom: 50px;
   line-height: 30px;
+  text-decoration: none;
+
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
 .info-content__link {

@@ -8,7 +8,6 @@
     font-size: 36px;
     font-weight: 700;
     padding-bottom: 92px;
-    margin-left: 160px;
 }
 
 .feedback-form__row {
@@ -27,12 +26,12 @@ label {
 }
 
 .form__elem {
-    margin-left: 160px;
-    margin-bottom: 134px;
+    width: 880px;
 }
 
 .form__row {
     display: flex;
+    width: 100%;
 
     &--extra-margin {
         margin-bottom: 60px;
@@ -40,8 +39,12 @@ label {
 }
 
 .form-block {
+    flex-grow: 1;
     margin-bottom: 41px;
-    padding-right: 70px;
+    
+    &:not(:last-child) {
+      padding-right: 70px;
+    }
     
     &::before {
       content: attr(data-title);
@@ -49,41 +52,66 @@ label {
       font-weight: 600;
       color: rgba(70, 77, 98, 0.3);
       line-height: 30px;
-      padding-left: 35px;
+      padding-left: 46px;
       padding-bottom: 30px;
     }
 }
 
+.form-block__container {
+    position: relative;
+}
+
 .form-block__icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
     width: 30px;
     height: 30px;
     fill: rgba(70, 77, 98, 0.3);
+    transform: translateY(-50%);
 }
 
-.form-block__input {
+.form-block__input,
+.form-block__textarea {
+    width: 100%;
     font-size: 18px;
     font-weight: 700;
     color: $text-color;
-    line-height: 36px;
+    line-height: 48px;
+    background: transparent;
+    border: none;
     border-bottom: 1px solid $text-color;
-    padding-left: 35px;
+    padding-left: 46px;
+
+    &:focus {
+      border-bottom-color: $accent-color;
+    }
+
+    &:focus + .form-block__icon {
+      fill: $accent-color;
+
+    }
+}
+
+.form-block__textarea {
+    line-height: 36px;
 }
 
 .gradient-btn {
     width: 347px;
     height: 80px;
-    padding: 20px 50px;
+    padding: 0 50px;
     color: white;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 48px;
     border: none;
     border-radius: 35px 5px 35px 5px;
     background-image: linear-gradient(to right, #9300e8, #4a00ed);
+    text-transform: uppercase;
     cursor: pointer;
-    margin-bottom: 44px;
 
     &:hover {
-      background-image: linear-gradient(to right, violet, blue);
+      background-image: linear-gradient(to right, #bb00ff 0%, #5900ff 100%);
     }
 }
