@@ -1,41 +1,6 @@
 .welcome-section
-  section.hero#main
-    .container.hero__container
-      header.header.hero__header
-        .hero__logo
-          .logo МШ
-        .hero__menu
-          include nav
-        .hero__links
-          +socials()
-      .hero__content
-        .user-info
-          h1.user-info__desk Личный сайт веб-разработчика
-          .user-info__username Михаил Шаров
-      a.hero__btns(href="#about")
-        .scroll-down__name Скролл
-        .scroll-down-btns 
-          +icon("scroll", "scroll-down-btns")
+  include mountains-parallax
+  include hero
+  include about
 
-  section.about#about
-    .container.about__container
-      .about__left
-        .user
-          .avatar.user__avatar
-            +image("content/user.jpg", "avatar__pic")
-          table.user__desk
-            -
-              var items = [
-                ["Проживаю:", "Санкт-Петербург"],
-                ["Возраст:", "24 года"],
-                ["Родился:", "11 декабря 1994 года"],
-              ]
-            each item in items
-              tr.user__desk-item
-                td.user__key #{item[0]}
-                td.user__value #{item[1]}
-      .about__right
-        h4.about__prolog Привет, меня зовут
-        h2.about__title Михаил Шаров
-        .about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-        .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освяжу в нем свой контент. А пока посмотрите, как тут все классно и красиво!
+  
