@@ -11,6 +11,11 @@
   &__info {
     display: flex;
     margin-right: 140px;
+
+    @include desktopHd {
+      flex-direction: column;
+      margin-left: 59px;
+    }
   }
 
   &__main {
@@ -19,6 +24,11 @@
 
   &__menu {
     color: #fff;
+
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   &__content {
@@ -35,6 +45,10 @@
   line-height: 1;
   white-space: nowrap;
   padding-right: 60px;
+
+  @include desktopHd {
+    margin-bottom: 31px;
+  }
 }
 
 .footer__site-owner {

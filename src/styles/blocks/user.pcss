@@ -21,6 +21,10 @@
   font-weight: 600;
   padding-right: 80px;
   color: rgba(70, 77, 98, 0.3);
+
+  @include desktop {
+    font-size: 14px;
+  }
 }
 
 .user__value {
@@ -29,11 +33,32 @@
   color: $text-color;
   white-space: nowrap;
   /* padding-left: 50px; */
+
+  @include desktop {
+    font-size: 14px;
+  }
 }
 
 .user-info {
   display: flex;
   flex-direction: column;
+
+  @include desktopHd {
+    display: flex;
+    flex-direction: row;
+    padding-right: 150px;
+  }
+
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    padding-right: 170px;
+  }
+
+  @include phones {
+    padding-right: 40px;
+    padding-left: 60px;
+  }
 }
 
 .user-info__desk {
@@ -43,6 +68,24 @@
   line-height: 30px;
   margin-bottom: 33px;
   padding-left: 123px;
+
+  @include desktopHd {
+    margin-left: 200px;
+  }
+
+  @include desktop {
+    font-size: 16px;
+    margin-bottom: 30px;
+    padding-right: 140px;
+  }
+
+  @include phones {
+    font-size: 14px;
+    line-height: 24px;
+    padding-left: 29px;
+    padding-right: 46px;
+    margin-bottom: 19px;
+  }
 }
 
 .user-info__username {
@@ -50,4 +93,21 @@
   font-weight: 800;
   color: #464e62;
   line-height: 60px;
+
+  @include desktopHd {
+    color: #464d62;
+  }
+
+  @include desktop {
+    font-size: 48px;
+    padding-left: 170px;
+  }
+
+  @include phones {
+    font-size: 36px;
+    color: #414c63;
+    line-height: 48px;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

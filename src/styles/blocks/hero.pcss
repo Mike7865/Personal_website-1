@@ -5,27 +5,54 @@
 .logo {
     font-size: 36px;
     font-weight: 800;
-    color: #464d62;;
+    color: #464d62;
+
+    @include desktopHd {
+      padding-left: 64px;
+    }  
+
+    @include desktop {
+      padding-left: 0;
+    }  
+
+    @include phones {
+      color: #414c63;
+    }
 }
 
 .hero__container {
     display: flex;
     height: 100%;
     flex-direction: column;
+
+    @include desktopHd {
+      width: 1200px;
+    }  
+
+    @include desktop {
+      width: 768px;
+    }  
+
+    @include phones {
+      width: 320px;
+    }
 }
 
 .hero__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-top: 40px;
 }
 
 .hero__menu {
     margin: 0 20px;
 }
 
-.hero__header {
-    padding-top: 40px;
+.hero__links {
+    @include desktopHd {
+      padding-right: 64px;
+    } 
 }
  
 .hero__content {
@@ -51,5 +78,13 @@
         .scroll-down-btns {
           fill: $accent-color;
         }
+    }
+
+    @include desktop {
+        display: none;
+    }
+
+    @include phones {
+        display: none;
     }
 }

@@ -3,6 +3,11 @@
     width: 100%;
     padding: 150px 0 92px;
 
+    @include desktopHd  {
+        display: flex;
+        padding: 150px 0 0 88px;
+    }
+
     @include desktop {
         padding: 117px 0 44vw 60px;
         display: flex;
@@ -78,17 +83,17 @@
    margin-top: 0px;
 
    @include desktopHd {
-       left: -8%;
+       left: -8;
        bottom: -6%;
        width: 47vh;
-   }
+    }
 
    @include desktop {
        left: 50%;
        bottom: 0;
        width: 44vw;
        transform: translate (-50%, 10vw) rotate (-90deg);
-   }
+    }
 }
 
 .values__charts {
@@ -98,10 +103,12 @@
 
     @include desktopHd {
         margin-left: 35vw;
-  }
+    }
 
     @include desktop {
         padding-top: 60px;
         margin-left: 0;
-  }
+        //display: flex;
+        //flex-direction: row;
+    }
 }

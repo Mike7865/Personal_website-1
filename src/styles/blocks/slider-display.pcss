@@ -38,5 +38,19 @@
     right: $offset-right;
     bottom: 0;
     z-index: 1;
+
+    @include desktopHd {
+      width: 178px;
+      height: 300px;
+
+      &:last-child {
+        //display: none;
+      }
+    }
+  }
+
+  @include desktopHd {
+    width: 823px;
+    height: 453px;
   }
 }
