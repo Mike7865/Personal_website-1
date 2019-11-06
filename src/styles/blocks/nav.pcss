@@ -9,11 +9,16 @@
   &:last-child {
     margin-right: 0;
   }
+
+  @include desktop {
+    margin-right: 3vw;
+  }
 }
 
 .nav__link {
   text-decoration: none;
   transition: color 0.3s ease;
+  white-space: nowrap;
 
   &:hover {
     font-weight: 600;

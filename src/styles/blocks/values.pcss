@@ -1,129 +1,141 @@
 .values {
-    position: relative;
-    width: 100%;
-    padding: 150px 0 92px;
+  position: relative;
+  width: 100%;
+  padding: 150px 0 0;
+  margin-bottom: 92px;
 
-    @include desktopHd  {
-        display: flex;
-        padding: 150px 0 0 88px;
-    }
+  @include desktopHd {
+    display: flex;
+    padding: 150px 0 0 88px;
+  }
 
-    @include desktop {
-        padding: 117px 0 44vw 60px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
-    }
+  @include desktop {
+    padding: 117px 0 0 0;
+    margin-bottom: 0;
+    padding-bottom: 44vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
 
-    @include tablets {
-        padding: 117px 0 44vw 40px;
-    }
+  @include tablets {
+    padding: 117px 0 44vw 40px;
+  }
 
-    @include phones {
-        padding: 97px 30px 220px;
-        align-items: flex-start;
-    }
+  @include phones {
+    padding: 97px 30px 220px;
+    align-items: flex-start;
+  }
+}
+
+.values__container {
+  display: flex;
+  flex-direction: column;
 }
 
 .values__title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #464d62;
+  margin-left: 27vw;
+  line-height: 36px;
+
+  @include desktopHd {
+    margin-left: 28vw;
+  }
+
+  @include desktop {
+    align-items: center;
+    max-width: 270px;
+    margin: 0 auto;
     font-size: 30px;
-    font-weight: 700;
-    color: #464d62;
-    margin-left: 27vw;
-    line-height: 36px;
+    text-align: center;
+  }
 
-    @include desktopHd {
-        margin-left: 28vw;
-    }
-
-    @include desktop {
-        align-items: center;
-        max-width: 270px;
-        margin-left: 254px;
-        font-size: 30px;
-        text-align: center;
-    }
-
-    @include phones {
-        align-self: flex-start;
-        text-align: left;
-        font-size: 24px;
-        max-width: 206px;
-        margin-left: 31px;
-    }
+  @include phones {
+    align-self: flex-start;
+    text-align: left;
+    font-size: 24px;
+    max-width: 100%;
+    margin-left: 0;
+  }
 }
 
 .values__desk {
-    font-size: 16px;
-    font-weight: 600;
-    color: rgba(70, 77, 98, 0.5);
-    margin-top: 59px;
-    margin-left: 27vw;
-    max-width: 590px;
-    opacity: 0.5;
-    line-height: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(70, 77, 98, 0.5);
+  margin-top: 59px;
+  margin-left: 27vw;
+  max-width: 590px;
+  opacity: 0.5;
+  line-height: 30px;
 
-    @include desktopHd {
-        margin-left: 28vw;
-    }
+  @include desktopHd {
+    margin-left: 28vw;
+  }
 
-    @include desktop {
-        align-self: center;
-        max-width: 440px;
-        margin-left: 170px;
-        margin-top: 30px;
-        font-size: 14px; 
-        text-align: center;
-    }
+  @include desktop {
+    align-self: center;
+    max-width: 440px;
+    margin-left: 0;
+    margin-top: 30px;
+    font-size: 14px;
+    text-align: center;
+  }
 
-    @include phones {
-        line-height: 24px;
-        margin-left: 15px;
-    }
+  @include phones {
+    text-align: left;
+    line-height: 24px;
+    margin-left: 0;
+  }
 }
 
 .values__image {
-   position: absolute;
-   left: -1%;
-   //bottom: -9%;
-   width: 37vw;
-   margin-top: 0px;
+  position: absolute;
+  left: -1%;
+  bottom: 0;
+  width: 37vw;
+  margin-top: 0px;
 
-   @include desktopHd {
-       left: -8;
-       bottom: -6%;
-       width: 47vh;
-    }
+  @include desktopHd {
+    left: -15%;
+    bottom: 0;
+    width: 52vw;
+  }
 
-   @include desktop {
-       left: 30%;
-       bottom: 0;
-       width: 44vw;
-       transform: translate (-50%, 10vw) rotate (-90deg);
-    }
-    
-    @include phones {
-      left: 20%;
-      width: 68vw;
-    }
+  @include desktop {
+    left: 30%;
+    bottom: 0;
+    width: 44vw;
+    transform: translate (-50%, 10vw) rotate (-90deg);
+  }
+
+  @include tablets {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @include phones {
+    width: 55vw;
+  }
 }
 
 .values__charts {
+  align-self: flex-end;
+  padding-top: 96px;
+
+  @include desktopHd {
+  }
+
+  @include desktop {
+    padding-top: 60px;
+    margin-left: 0;
     align-self: center;
-    padding-top: 96px;
-    margin-left: calc(35vw);
+  }
 
-    @include desktopHd {
-      margin-left: 35vw;
-    }
-
-    @include desktop {
-      padding-top: 60px;
-      margin-left: 0;
-    }
-
-    @include phones {
-      max-width: 270px;
-    }
+  @include phones {
+    max-width: 270px;
+  }
 }

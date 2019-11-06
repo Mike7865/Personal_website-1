@@ -32,6 +32,12 @@
   @include desktop {
     justify-content: center;
   }
+
+  @include phones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 50px;
+  }
 }
 
 .skills-row__item {
@@ -47,7 +53,10 @@
   }
 
   @include phones {
-    margin: 0 15px 25px;
+    margin: 0;
+    &:not(:last-child) {
+      margin-right: 0;
+    }
   }
 }
 
@@ -62,12 +71,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  opacity: .5;
-  transform: translate(-50%, -50%); 
+  opacity: 0.5;
+  transform: translate(-50%, -50%);
 
   @include desktop {
     font-size: 16px;
     line-height: 48px;
   }
 }
-

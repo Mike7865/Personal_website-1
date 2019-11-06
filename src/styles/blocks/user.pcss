@@ -6,7 +6,10 @@
 
 .user__avatar {
   margin-bottom: 80px;
-  box-shadow: 10px 36px 38px 16px rgba(0, 0, 0, .1);
+  box-shadow: 10px 36px 38px 16px rgba(0, 0, 0, 0.1);
+  @include desktop {
+    margin-bottom: 66px;
+  }
 }
 
 .user__desk-item {
@@ -52,7 +55,7 @@
   @include desktop {
     display: flex;
     flex-direction: column;
-    padding-right: 170px;
+    padding-right: 0;
   }
 
   @include phones {
@@ -67,16 +70,18 @@
   color: rgba(70, 77, 98, 0.4);
   line-height: 30px;
   margin-bottom: 33px;
-  padding-left: 123px;
+  text-align: center;
 
   @include desktopHd {
+    text-align: right;
     margin-left: 200px;
   }
 
   @include desktop {
+    text-align: center;
     font-size: 16px;
+    margin-left: 0;
     margin-bottom: 30px;
-    padding-right: 140px;
   }
 
   @include phones {
@@ -93,14 +98,18 @@
   font-weight: 800;
   color: #464e62;
   line-height: 60px;
+  text-align: center;
 
   @include desktopHd {
     color: #464d62;
+    text-align: left;
+    padding-left: 60px;
   }
 
   @include desktop {
+    text-align: center;
     font-size: 48px;
-    padding-left: 170px;
+    padding-left: 0;
   }
 
   @include phones {

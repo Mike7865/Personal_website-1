@@ -1,17 +1,29 @@
 .triangles {
-    display: flex;
-    margin-top: -100px;
-    color: white;
+  display: flex;
+  transform: translateY(-100%);
+  color: white;
 
-    &__reverse {
-        margin-top: 0px;
-        margin-bottom: -100px;
-    }
+  &__reverse {
+    margin-top: 0px;
+    transform: translateY(100%);
+  }
 }
 
 .triangles__item {
-    width: 50%;
-    display: block;
-    height: 100px;
-    fill: currentColor;
+  width: 50%;
+  display: block;
+  height: 100px;
+  fill: currentColor;
+
+  @include desktop {
+    height: 80px;
+  }
+
+  @include desktop {
+    height: 50px;
+  }
+
+  @include phones {
+    height: 25px;
+  }
 }
