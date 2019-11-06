@@ -2,6 +2,6 @@
   - var layers = [["sky", 0], ["mountains", 5], ["baloon", 4], ["clouds", 3], ["man", 0], ["hill", 10], ["bottom-clouds", 0]];
     each layer, index in layers
       - var i = index + 1
-        .mountains-parallax__layer 
-          image.mountains-parallax__image(src=require(`images/parallax/${layer[0]}.png`))
+        .mountains-parallax__layer(data-speed=layer[1])
+          img.mountains-parallax__image(src=require(`images/parallax_mountains/${layer[0]}.png`))
           .mountains-parallax__layer(class=`mountains-parallax__layer_${layer[0]}`)

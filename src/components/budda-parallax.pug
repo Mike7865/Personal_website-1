@@ -1,0 +1,7 @@
+//.budda-parallax
+  - var layers = [["sky", 0], ["mountains", 5], ["budda", 7], ["cloud-1", 0], ["cloud-2", 0], ["cloud-3", 0]];
+    each layer, index in layers
+      - var i = index + 1
+        .budda-parallax__layer(data-speed=layer[1])
+          img.budda-parallax__image(src=require(`images/parallax/${layer[0]}.png`))
+          .budda-parallax__layer(class=`budda-parallax__layer_${layer[0]}`)
