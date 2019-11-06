@@ -1,18 +1,35 @@
 .works {
-    padding: 100px 160px 205px 160px;
-    width: 100%;
-    background-color: white;
+  padding: 100px 0 205px;
+  width: 100%;
+  background-color: white;
+  max-width: 1500px;
+  margin: 0 auto;
+
+  @include desktopHd {
+    max-width: 1100px;
+    padding: 100px 60px 205px;
+  }
+
+  @include desktop {
+    max-width: 800px;
+    padding: 100px 40px 205px;
+  }
+
+  @include tablets {
+    max-width: 100%;
+    padding: 100px 0 205px;
+  }
 }
 
 .works__title {
-    color: $text-color;
-    line-height: 48px;
-    font-size: 36px;
-    font-weight: 700;
-    padding-bottom: 92px;
+  color: $text-color;
+  line-height: 48px;
+  font-size: 36px;
+  font-weight: 700;
+  padding-bottom: 92px;
 
-    @include phones {
-      font-size: 24px;
-      line-height: 48px;
-    }
+  @include phones {
+    font-size: 24px;
+    line-height: 48px;
+  }
 }

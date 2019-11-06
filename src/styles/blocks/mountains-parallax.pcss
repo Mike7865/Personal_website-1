@@ -5,72 +5,77 @@
   right: 0;
   bottom: 0;
 
-  //&__layer {
-    //position: absolute;
-    //top: 0;
-    //left: 0;
-    //right: 0;
-    //bottom: 0;
-    //will-change: transform;
+  &__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    will-change: transform;
 
-    //&:nth-child(sky) {
-      //.mountains-parallax__image {
-        //object-fit: cover;
-       // width: 100%;
-       // height: 100%;
-      //}
-    //}
+    &_sky {
+      .mountains-parallax__image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
 
-    //&:nth-child(mountains) {
-      //.mountains-parallax__image {
-        //top: 360px;
-        //right: 0;
-      //}
-    //}
+    &_mountains {
+      top: 50vh;
+      right: 0;
+      .mountains-parallax__image {
+        width: 100%;
+      }
+    }
 
-    //&:nth-child(baloon) {
-      //.mountains-parallax__image {
-        //top: 500px;
-        //left: 50%;
-        //transform: translateX(360px);
-      //}
-    //}
+    &_baloon {
+      .mountains-parallax__image {
+        top: 50vh;
+        left: 50%;
+        transform: translateX(360px);
+      }
+    }
 
-    //&:nth-child(clouds) {
-      //.mountains-parallax__image {
-        //top: 600px;
-        //left: 0;
-      //}
-    //}
+    &_clouds {
+      .mountains-parallax__image {
+        top: 60vh;
+        left: 0;
+      }
+    }
 
-    //&:nth-child(man) {
-      //.mountains-parallax__image {
-        //top: 100vh;
-        //left: 0;
-        //transform: translateY(-50%);
-      //}
-    //}
+    &_man {
+      .mountains-parallax__image {
+        top: 100vh;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
 
-    //&:nth-child(hill) {
-      //.mountains-parallax__image {
-        //top: 100vh;
-        //right: 0;
-        //transform: translateY(-50%);
-      //}
-    //}
+    &_hill {
+      .mountains-parallax__image {
+        top: 100vh;
+        left: auto;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    }
 
-    //&:nth-child(bottom-clouds) {
-      //top: 100vh;
-      //bottom: 0;
-      //left: 0;
-      //right: 0;
-      //.mountains-parallax__image {
-        //bottom: 0;
-        //left: 0;
-        //right: 0;
-      //}
-    //}
-  //}
+    &_bottom-clouds {
+      top: 100vh;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      .mountains-parallax__image {
+        object-fit: cover;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 
   &__image {
     position: absolute;
@@ -79,47 +84,6 @@
     right: 0;
     bottom: 0;
     will-change: transform;
-
-    &__sky {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-
-    &__mountains {
-      top: 360px;
-      right: 0;
-    }
-
-    &__baloon {
-      top: 500px;
-      left: 50%;
-      transform: translateX(360px);
-    }
-
-    &__clouds {
-      top: 600px;
-      left: 0;
-    }
-
-    &__man {
-      top: 100vh;
-      left: 0;
-      transform: translateY(-50%);    
-    }
-
-    &__hill {
-      top: 100vh;
-      right: 0;
-      transform: translateY(-50%);
-    }
-
-    &__bottom-clouds {
-      top: 100vh;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
   }
 
   @include tablets {

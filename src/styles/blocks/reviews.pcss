@@ -2,13 +2,25 @@
   width: 1030px;
 
   @include desktop {
-    max-width: 700px;
+    max-width: 100%;
+  }
+
+  @include tablets {
+    max-width: 500px;
+  }
+
+  @include phones {
+    max-width: 100%;
   }
 
   &__header {
     display: flex;
     align-items: center;
     padding-top: 200px;
+
+    @include phones {
+      flex-direction: column;
+    }
   }
 
   &__title {
@@ -32,6 +44,10 @@
 
     @include desktop {
       margin-left: 30px;
+    }
+
+    @include phones {
+      margin-left: 0;
     }
   }
 
@@ -69,10 +85,7 @@
 .reviews__body {
   display: flex;
   align-items: stretch;
-
-  @include phones {
-    overflow: hidden;
-  }
+  overflow: hidden;
 }
 
 .reviews-opinion {
@@ -82,6 +95,11 @@
   flex: 1;
   margin-top: 101px;
   margin-right: 84px;
+
+  @include tablets {
+    flex-basis: 100%;
+    flex-shrink: 0;
+  }
 }
 
 .reviews-opinion__quotes {
