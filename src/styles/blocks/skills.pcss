@@ -7,8 +7,8 @@
   position: relative;
 
   @include desktop {
-    width: 112px;
-    height: 113px;
+    width: 130px;
+    height: 130px;
   }
 }
 
@@ -31,10 +31,6 @@
 
   @include desktop {
     justify-content: center;
-  }
-
-  @include tablets {
-    max-width: 400px;
   }
 }
 
@@ -68,5 +64,10 @@
   left: 50%;
   opacity: .5;
   transform: translate(-50%, -50%); 
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 48px;
+  }
 }
 

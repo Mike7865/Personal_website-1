@@ -2,6 +2,11 @@
   position: relative;
   height: 550px;
 
+  @include phones {
+    max-width: 310px;
+    margin-right: 0;
+  }
+
   &::after {
     position: absolute;
     content: attr(data-slide);
@@ -42,10 +47,6 @@
     @include desktopHd {
       width: 178px;
       height: 300px;
-
-      &:last-child {
-        //display: none;
-      }
     }
   }
 

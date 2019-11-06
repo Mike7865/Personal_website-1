@@ -7,6 +7,10 @@
   display: flex;
   justify-content: center;
   margin-bottom: 60px;
+
+  @include phones {
+    flex-direction: column;
+  }
 }
 
 .about__left {

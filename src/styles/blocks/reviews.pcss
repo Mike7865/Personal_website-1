@@ -1,6 +1,10 @@
 .reviews {
   width: 1030px;
 
+  @include desktop {
+    max-width: 700px;
+  }
+
   &__header {
     display: flex;
     align-items: center;
@@ -12,11 +16,24 @@
     font-weight: 700;
     color: $text-color;
     line-height: 48px;
+
+    @include desktop {
+      font-size: 30px;
+    }
+
+    @include phones {
+      font-size: 24px;
+      
+    }
   }
 
   &__buttons {
     margin-left: 122px;
     display: flex;
+
+    @include desktop {
+      margin-left: 30px;
+    }
   }
 
   &__button {
@@ -53,6 +70,10 @@
 .reviews__body {
   display: flex;
   align-items: stretch;
+
+  @include phones {
+    overflow: hidden;
+  }
 }
 
 .reviews-opinion {
@@ -67,6 +88,10 @@
 .reviews-opinion__quotes {
   display: flex;
   margin-bottom: 20px;
+
+  @include desktop {
+    margin-bottom: 20px;
+  }
 }
 
 .quotes__item {
@@ -74,6 +99,11 @@
   width: 75px;
   height: 63px;
   margin-right: 21px;
+
+  @include desktop {
+    width: 30px;
+    height: 26px;
+  }
 }
 
 .quote__icon {
@@ -85,12 +115,27 @@
   font-weight: 600;
   color: rgba(70, 77, 98, 0.5);
   line-height: 30px;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .quotes__reviewer {
   display: flex;
-  //padding-top: 32px;
   margin-left: 105px;
+
+  @include desktop {
+    margin-left: 10px;
+  }
+}
+
+.reviwer__image {
+  @include desktop {
+    width: 75px;
+    height: 75px;
+  }
 }
 
 .reviwer__info {
@@ -102,6 +147,11 @@
   font-weight: 700;
   color: $text-color;
   line-height: 48px;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .reviwer__position {
@@ -109,4 +159,8 @@
   font-weight: 600;
   color: rgba(70, 77, 98, 0.3);
   line-height: 30px;
+
+  @include desktop {
+    font-size: 14px;
+  }
 }

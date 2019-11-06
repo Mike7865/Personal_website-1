@@ -1,17 +1,25 @@
 .feedback-form {
-    margin-top: 202px;
+  margin-top: 202px;
+
+  @include desktop {
+    max-width: 700px;
+  }
 }
 
 .feedback-form__title {
-    color: $text-color;
-    line-height: 48px;
-    font-size: 36px;
-    font-weight: 700;
-    padding-bottom: 92px;
+  color: $text-color;
+  line-height: 48px;
+  font-size: 36px;
+  font-weight: 700;
+  padding-bottom: 92px;
+
+  @include desktop {
+    font-size: 30px;
+  }
 }
 
 .feedback-form__row {
-    display: flex;
+  display: flex;
 }
 
 label {
@@ -22,96 +30,115 @@ label {
 }
 
 .feedback-form__control {
-    position: relative;
+  position: relative;
 }
 
+.form {}
+
 .form__elem {
-    width: 880px;
+  width: 880px;
 }
 
 .form__row {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 
-    &--extra-margin {
-        margin-bottom: 60px;
-    }
+  &--extra-margin {
+    margin-bottom: 60px;
+  }
+
+  @include desktop {
+    width: 70%;
+  }
 }
 
 .form-block {
-    flex-grow: 1;
-    margin-bottom: 41px;
-    
-    &:not(:last-child) {
-      padding-right: 70px;
+  flex-grow: 1;
+  margin-bottom: 41px;
+
+  &:not(:last-child) {
+    padding-right: 70px;
+  }
+
+  &::before {
+    content: attr(data-title);
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(70, 77, 98, 0.3);
+    line-height: 30px;
+    padding-left: 46px;
+    padding-bottom: 30px;
+
+    @include desktop {
+      font-size: 14px;
     }
-    
-    &::before {
-      content: attr(data-title);
-      font-size: 16px;
-      font-weight: 600;
-      color: rgba(70, 77, 98, 0.3);
-      line-height: 30px;
-      padding-left: 46px;
-      padding-bottom: 30px;
-    }
+  }
 }
 
 .form-block__container {
-    position: relative;
+  position: relative;
 }
 
 .form-block__icon {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 30px;
-    height: 30px;
-    fill: rgba(70, 77, 98, 0.3);
-    transform: translateY(-50%);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  fill: rgba(70, 77, 98, 0.3);
+  transform: translateY(-50%);
+
+  @include desktop {
+    top:30%;
+  }
 }
 
 .form-block__input,
 .form-block__textarea {
-    width: 100%;
-    font-size: 18px;
-    font-weight: 700;
-    color: $text-color;
-    line-height: 48px;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid $text-color;
-    padding-left: 46px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  color: $text-color;
+  line-height: 48px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $text-color;
+  padding-left: 46px;
 
-    &:focus {
-      border-bottom-color: $accent-color;
-    }
+  &:focus {
+    border-bottom-color: $accent-color;
+  }
 
-    &:focus + .form-block__icon {
-      fill: $accent-color;
+  &:focus+.form-block__icon {
+    fill: $accent-color;
 
-    }
+  }
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .form-block__textarea {
-    line-height: 36px;
+  line-height: 36px;
 }
 
 .gradient-btn {
-    width: 347px;
-    height: 80px;
-    padding: 0 50px;
-    color: white;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 48px;
-    border: none;
-    border-radius: 35px 5px 35px 5px;
-    background-image: linear-gradient(to right, #9300e8, #4a00ed);
-    text-transform: uppercase;
-    cursor: pointer;
+  width: 347px;
+  height: 80px;
+  padding: 0 50px;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 48px;
+  border: none;
+  border-radius: 35px 5px 35px 5px;
+  background-image: linear-gradient(to right, #9300e8, #4a00ed);
+  text-transform: uppercase;
+  cursor: pointer;
 
-    &:hover {
-      background-image: linear-gradient(to right, #bb00ff 0%, #5900ff 100%);
-    }
+  &:hover {
+    background-image: linear-gradient(to right, #bb00ff 0%, #5900ff 100%);
+  }
 }
