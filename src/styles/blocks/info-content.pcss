@@ -1,6 +1,10 @@
 .info-skill {
   display: flex;
 
+  @include desktop {
+    margin-left: 60px;
+  }
+
   @include phones {
     margin-left: 30px;
   }
@@ -65,6 +69,10 @@
 .info-content__link {
   display: flex;
   align-items: center;
+
+  @include desktop {
+    margin-left: 120px;
+  }
 
   @include phones {
     margin-left: 30px;

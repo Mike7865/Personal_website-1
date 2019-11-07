@@ -45,6 +45,10 @@
     @include desktop {
       margin-left: 30px;
     }
+    
+    @include tablets {
+      margin-top: 17px;
+    }
 
     @include phones {
       margin-left: 0;
@@ -86,6 +90,14 @@
   display: flex;
   align-items: stretch;
   overflow: hidden;
+
+  @include desktop {
+    overflow: visible;
+  }
+
+  @include tablets {
+    overflow: hidden;
+  }
 }
 
 .reviews-opinion {
@@ -96,9 +108,20 @@
   margin-top: 101px;
   margin-right: 84px;
 
+  @include desktop {
+    max-width: 300px;
+  }
+
   @include tablets {
     flex-basis: 100%;
     flex-shrink: 0;
+    max-width: 500px;
+    margin-top: 33px;
+  }
+
+  @include phones {
+    max-width: 310px;
+    margin-left: 30px;
   }
 }
 
@@ -120,6 +143,10 @@
   @include desktop {
     width: 30px;
     height: 26px;
+  }
+
+  @include phones {
+    display: none;
   }
 }
 
@@ -144,14 +171,18 @@
   margin-left: 105px;
 
   @include desktop {
-    margin-left: 10px;
+    margin-left: 40px;
+  }
+
+  @include phones {
+    margin-left: 0;
   }
 }
 
 .reviwer__image {
   @include desktop {
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
   }
 }
 

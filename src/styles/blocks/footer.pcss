@@ -2,10 +2,18 @@
   padding: 100px 0;
   background-color: #252830;
 
+  @include desktop {
+    padding-top: 67px;
+  }
+
   &__container {
     display: flex;
     max-width: 1435px;
-    margin: 0 auto;   
+    margin: 0 auto;
+
+    @include tablets {
+      flex-direction: column;
+    }   
   }
 
   &__info {
@@ -18,14 +26,35 @@
     }
 
     @include desktop {
-      margin-right: 30px;
+      margin-right: 0;
+    }
+
+    @include tablets {
+      align-self: center;
+    }
+
+    @include phones {
+      margin-left: -100px;
     }
   }
   
   &__main {
     @include desktop {
+      margin-right: 50px;
       display: flex;
       flex-direction: column;
+    }
+
+    @include tablets {
+      margin-top: 20px;
+      margin-left: 70px;
+      align-self: center;
+      max-width: 300px;
+    }
+
+    @include phones {
+      margin-top: 0;
+      margin-left: 20px;
     }
   }
 
@@ -41,6 +70,18 @@
   &__content {
     display: flex;
     justify-content: center;
+    padding-top: 70px;
+
+    @include desktop {
+      flex-direction: column;
+      padding-top: 50px;
+    }
+  }
+}
+
+.footer__about-info {
+  @include desktop {
+    margin-right: 20px;
   }
 }
 
@@ -80,14 +121,6 @@
   }
 }
 
-.footer__content {
-  padding-top: 70px;
-}
-
-.footer__about-info {
-  
-}
-
 .footer__text {
   font-size: 16px;
   font-weight: 400;
@@ -104,6 +137,14 @@
 .footer__quote {
   padding-left: 63px;
 
+  @include desktopHd {
+    padding-left: 20px;
+  }
+
+  @include desktop {
+    margin-top: 50px;
+    padding-left: 0;
+  }
 }
 
 .footer__quote-text {

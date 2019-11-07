@@ -1,6 +1,15 @@
 .nav__list {
   display: flex;
   align-items: center;
+
+  @include tablets {
+    flex-wrap: wrap;
+    padding-top: 50px;
+  }
+
+  @include phones {
+    justify-content: space-between;
+  }
 }
 
 .nav__item {
@@ -12,6 +21,12 @@
 
   @include desktop {
     margin-right: 3vw;
+  }
+
+  @include phones {
+    flex-basis: 50%;
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 }
 

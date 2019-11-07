@@ -19,6 +19,10 @@
     max-width: 100%;
     padding: 100px 0 205px;
   }
+
+  @include phones {
+    padding-bottom: 50px;
+  }
 }
 
 .works__title {
@@ -28,8 +32,13 @@
   font-weight: 700;
   padding-bottom: 92px;
 
+  @include desktop {
+    padding-left: 20px;
+  }
+
   @include phones {
     font-size: 24px;
     line-height: 48px;
+    padding-left: 105px;
   }
 }

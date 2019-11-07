@@ -4,6 +4,10 @@
   @include desktop {
     max-width: 700px;
   }
+
+  @include tablets {
+    margin-top: 156px;
+  }
 }
 
 .feedback-form__title {
@@ -15,6 +19,15 @@
 
   @include desktop {
     font-size: 30px;
+  }
+
+  @include tablets {
+    font-size: 24px;
+    margin-left: 140px;
+  }
+
+  @include phones {
+    margin-left: 50px;
   }
 }
 
@@ -33,10 +46,16 @@ label {
   position: relative;
 }
 
-.form {}
-
 .form__elem {
   width: 880px;
+
+  @include tablets {
+    margin-left: 130px;
+  }
+
+  @include phones {
+    margin-left: 40px;
+  }
 }
 
 .form__row {
@@ -48,7 +67,12 @@ label {
   }
 
   @include desktop {
-    width: 70%;
+    width: 80%;
+  }
+
+  @include tablets {
+    width: 260px;
+    flex-direction: column;
   }
 }
 
@@ -58,6 +82,10 @@ label {
 
   &:not(:last-child) {
     padding-right: 70px;
+
+    @include tablets {
+      padding-right: 0;
+    }
   }
 
   &::before {
@@ -90,6 +118,10 @@ label {
 
   @include desktop {
     top:30%;
+  }
+
+  @include tablets {
+    display: none;
   }
 }
 
@@ -140,5 +172,21 @@ label {
 
   &:hover {
     background-image: linear-gradient(to right, #bb00ff 0%, #5900ff 100%);
+  }
+  
+  @include desktopHd {
+    margin-left: 0;
+  }
+
+  @include desktop {
+    margin-left: 180px;
+  }
+
+  @include tablets {
+    width: 259px;
+    height: 60px;
+    font-size: 16px;
+    align-self: center;
+    margin-right: 180px;
   }
 }
