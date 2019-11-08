@@ -1,6 +1,9 @@
 const mountainsParallax = document.querySelector('.mountains-parallax');
 const mountainsLayers = mountainsParallax.children;
 
+const buddaParallax = document.querySelector('.budda-parallax');
+const buddaLayers = buddaParallax.children;
+
 function moveLayersDependsOnScroll(layers, wScroll) {
   [...layers].forEach(layer => {
     if (layer.dataset.speed) {
@@ -16,4 +19,10 @@ window.addEventListener('scroll', () => {
   }
   const wScroll = window.pageYOffset;
   moveLayersDependsOnScroll(mountainsLayers, wScroll);
+
+  const {top} = buddaParallax.getBoundingClientRect();
+  const buddaParallaxOffset = window.innerHeight - top;
+  if (buddaParallaxOffset > 0) {
+    moveLayersDependsOnScroll(buddaLayers, buddaParallaxOffset);
+  }
 });
