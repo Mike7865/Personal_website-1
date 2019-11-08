@@ -6,7 +6,8 @@
   }
 
   @include tablets {
-    max-width: 500px;
+    max-width: 760px;
+    margin-left: 40px;
   }
 
   @include phones {
@@ -20,6 +21,7 @@
 
     @include phones {
       flex-direction: column;
+      margin-right: 60px;
     }
   }
 
@@ -95,8 +97,9 @@
     overflow: visible;
   }
 
-  @include tablets {
+  @include phones {
     overflow: hidden;
+    margin-left: 50px;
   }
 }
 
@@ -115,7 +118,6 @@
   @include tablets {
     flex-basis: 100%;
     flex-shrink: 0;
-    max-width: 500px;
     margin-top: 33px;
   }
 

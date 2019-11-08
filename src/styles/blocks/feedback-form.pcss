@@ -8,6 +8,10 @@
   @include tablets {
     margin-top: 156px;
   }
+
+  @include phones {
+    margin-left: 90px;
+  }
 }
 
 .feedback-form__title {
@@ -50,7 +54,7 @@ label {
   width: 880px;
 
   @include tablets {
-    margin-left: 130px;
+    margin-left: 40px;
   }
 
   @include phones {
@@ -70,7 +74,7 @@ label {
     width: 80%;
   }
 
-  @include tablets {
+  @include phones {
     width: 260px;
     flex-direction: column;
   }
@@ -83,7 +87,7 @@ label {
   &:not(:last-child) {
     padding-right: 70px;
 
-    @include tablets {
+    @include phones {
       padding-right: 0;
     }
   }
@@ -120,7 +124,7 @@ label {
     top:30%;
   }
 
-  @include tablets {
+  @include phones {
     display: none;
   }
 }
@@ -178,15 +182,16 @@ label {
     margin-left: 0;
   }
 
-  @include desktop {
-    margin-left: 180px;
+  @include tablets {
+    align-self: center;
+    margin-left: 200px;
+    margin-top: -61px;
   }
 
-  @include tablets {
+  @include phones {
     width: 259px;
     height: 60px;
     font-size: 16px;
-    align-self: center;
-    margin-right: 180px;
+    margin-left: 0;
   }
 }
