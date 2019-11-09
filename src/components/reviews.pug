@@ -1,24 +1,31 @@
-.reviews
+.reviews#reviews
   .reviews__header 
     .reviews__title Что обо мне говорят
     .reviews__buttons
-      button.reviews__button
+      button.reviews__button //(
+        //:disabled="currentIndex === 0"
+        //@click="previous"
+        //)
         +icon("arrow-down", "reviews__button-icon reviews__button-icon_prev")
-      button.reviews__button
+      button.reviews__button //(
+        //:disabled="currentIndex === slidesLength - 1"
+        //@click="next"
+        //)
         +icon("arrow-down", "reviews__button-icon reviews__button-icon_next")
   .reviews__body
-    .reviews-opinion
+    flickity(ref="flickity" :options="flickityOptions")
+    .reviews-opinion.carousel-cell(v-for="review in reviews")
       .reviews-opinion__quotes
         .quotes__item
           +icon("quote", "quote__icon")
         .quotes__text
           p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
       .quotes__reviewer
-        .reviwer__image
+        .reviwer__image(:src="review.photo")
           +image("content/kovalchuk.png")
         .reviwer__info
-          .reviwer__name Дмитрий Ковальчук
-          .reviwer__position Основатель LoftSchool
+          .reviwer__name Дмитрий Ковальчук {{ review.author }}
+          .reviwer__position Основатель LoftSchool {{ review.position }}
     .reviews-opinion
       .reviews-opinion__quotes
         .quotes__item
@@ -26,8 +33,8 @@
         .quotes__text
           p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
       .quotes__reviewer
-        .reviwer__image 
+        .reviwer__image(:src="review.photo") 
           +image("content/sabantsev.png")
         .reviwer__info
-          .reviwer__name Владимир Сабанцев
-          .reviwer__position Преподаватель 
+          .reviwer__name Владимир Сабанцев {{ review.author }}
+          .reviwer__position Преподаватель {{ review.position }}

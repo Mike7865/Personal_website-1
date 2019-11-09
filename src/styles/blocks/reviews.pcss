@@ -70,10 +70,24 @@
       margin-right: 0;
     }
 
-    &:hover {
+    &:not(:disabled):hover {
       border-color: $accent-color;
       .reviews__button-icon {
         fill: $accent-color;
+      }
+    }
+
+     &:disabled {
+      position: relative;
+      opacity: 0,5;
+      cursor: default;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
       }
     }
   }
