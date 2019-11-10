@@ -6,13 +6,13 @@
   }
 
   @include tablets {
-    max-width: 760px;
-    margin-left: 40px;
+    max-width: 100%;
+    padding: 0 40px;
   }
 
   @include phones {
     max-width: 100%;
-    margin-left: 0;
+    padding: 0 30px;
   }
 
   &__header {
@@ -20,9 +20,8 @@
     align-items: center;
     padding-top: 200px;
 
-    @include phones {
+    @include tablets {
       flex-direction: column;
-      margin-right: 60px;
     }
   }
 
@@ -37,6 +36,7 @@
     }
 
     @include phones {
+      align-self: flex-start;
       font-size: 24px;
     }
   }
@@ -112,13 +112,7 @@
     overflow: visible;
   }
 
-  @include tablets {
-    overflow: hidden;
-  }
-
   @include phones {
-    max-width: 310px;
-    overflow: hidden;
     margin-left: 0;
   }
 }
@@ -136,6 +130,7 @@
   }
 
   @include tablets {
+    max-width: 100%;
     flex-basis: 100%;
     flex-shrink: 0;
     margin-top: 33px;

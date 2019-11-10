@@ -6,6 +6,7 @@
   }
 
   @include tablets {
+    max-width: 100%;
     margin-top: 156px;
   }
 
@@ -26,12 +27,14 @@
   }
 
   @include tablets {
-    font-size: 24px;
-    margin-left: 140px;
+    text-align: center;
   }
 
   @include phones {
-    margin-left: 50px;
+    font-size: 24px;
+    text-align: left;
+    margin-left: 30px;
+    padding-bottom: 60px;
   }
 }
 
@@ -54,12 +57,12 @@ label {
   width: 880px;
 
   @include tablets {
-    margin-left: 40px;
+    padding: 0 40px;
     width: 100%;
   }
 
   @include phones {
-    margin-left: 40px;
+    padding: 0 30px;
   }
 }
 
@@ -76,11 +79,11 @@ label {
   }
 
   @include tablets {
+    width: 100%;
     flex-direction: column;
   }
 
   @include phones {
-    width: 260px;
     flex-direction: column;
   }
 }
@@ -127,10 +130,6 @@ label {
 
   @include desktop {
     top:30%;
-  }
-
-  @include phones {
-    display: none;
   }
 }
 
