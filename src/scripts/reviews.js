@@ -3,7 +3,7 @@ import Flickity from "vue-flickity";
 import reviews from "../data/reviews";
 
 new Vue({
-  el: "#reviews",
+  el: "#reviews-slider",
   components: {
     Flickity,
   },
@@ -25,10 +25,10 @@ new Vue({
   },
   methods: {
     next() {
-      this.$refs.flickity.next; 
+      this.$refs.flickity.next(); 
     },
     previous() {
-      this.$refs.flickity.previous; 
+      this.$refs.flickity.previous(); 
     },
   },
   created() {

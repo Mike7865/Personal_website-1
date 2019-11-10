@@ -1,4 +1,4 @@
-.reviews#reviews
+.reviews#reviews-slider
   .reviews__header 
     .reviews__title Что обо мне говорят
     .reviews__buttons
@@ -19,10 +19,9 @@
           .quotes__item
             +icon("quote", "quote__icon")
           .quotes__text
-            p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+            p {{ review.text }}
         .quotes__reviewer
-          .reviwer__image(:src="review.photo")
-            +image("content/kovalchuk.png")
+          img.reviwer__image(:src="review.photo")
           .reviwer__info
             .reviwer__name {{ review.author }}
             .reviwer__position {{ review.position }}

@@ -79,7 +79,7 @@
 
      &:disabled {
       position: relative;
-      opacity: 0,5;
+      opacity: 0.5;
       cursor: default;
       &::after {
         content: "";
@@ -104,13 +104,7 @@
 }
 
 .reviews__body {
-  display: flex;
-  align-items: stretch;
   overflow: hidden;
-
-  @include desktop {
-    overflow: visible;
-  }
 
   @include phones {
     margin-left: 0;
@@ -122,15 +116,12 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  width: 50%;
   margin-top: 101px;
-  margin-right: 84px;
-
-  @include desktop {
-    max-width: 300px;
-  }
+  padding-right: 84px;
 
   @include tablets {
-    max-width: 100%;
+    width: 100%;
     flex-basis: 100%;
     flex-shrink: 0;
     margin-top: 33px;
