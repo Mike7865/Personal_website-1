@@ -21,13 +21,19 @@ const display = {
 }
 
 const tags = {
-  template: "#slider-tags"
+  template: "#slider-tags",
+  prop: ["tag"]
 }
 
 const info = {
   template: "#slider-info",
   components: { tags },
-  props: ["currentWork"]
+  props: ["currentWork"],
+  computed: {
+    tagsArray() {
+      return this.currentWork.skills.split(", ");
+    }
+  }
 }
 
 new Vue({
@@ -36,9 +42,20 @@ new Vue({
   components: { display, info },
   data: () => ({
     works: [],
-    currentWork: {},
     currentIndex: 0
   }),
+  computed: {
+    currentWork() {
+      return this.works[this.currentIndex];
+    }
+  },
+  watch: {
+    currentIndex(value) {
+      const worksAmount = this.works.length - 1;
+      if (value < 0) this.currentIndex = worksAmount;
+      if (value > worksAmount) this.currentIndex = 0;
+    }
+  },
   methods: {
     makeArrWithRequiredImages(data) {
       return data.map(item => {
@@ -46,12 +63,20 @@ new Vue({
         item.photo = requiredPic;
         return item
       })
+    },
+    handleSlide(direction) {
+      switch(direction) {
+        case "next":
+          this.currentIndex++;
+          break;
+        case "next":
+          this.currentIndex--;
+        break;
+      }
     }
   },
   created() {
     const data = require("../data/works.json");
     this.works = this.makeArrWithRequiredImages(data);
-
-    this.currentWork = this.works[this.currentIndex];
   }
 });
