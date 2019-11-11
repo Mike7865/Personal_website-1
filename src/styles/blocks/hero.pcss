@@ -1,55 +1,120 @@
 .hero {
+  position: relative;
+  z-index: 1;
   height: 100vh;
 }
 
 .logo {
-    font-size: 36px;
-    font-weight: 800;
-    color: #464d62;;
+  font-size: 36px;
+  font-weight: 800;
+  color: #464d62;
+
+  @include desktopHd {
+    padding-left: 64px;
+  }
+
+  @include desktop {
+    padding-left: 0;
+  }
+
+  @include phones {
+    color: #414c63;
+  }
 }
 
 .hero__container {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
 }
 
 .hero__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 40px;
+}
+
+.hero__logo {
+  margin-left: 60px;
+
+  @include desktop {
+    margin-left: 40px;
+  }
 }
 
 .hero__menu {
-    margin: 0 20px;
+  margin: 0 20px;
+
+  @include tablets {
+    display: none;
+  }
 }
 
-.hero__header {
-    padding-top: 40px;
+.hero__links {
+  margin-right: 60px;
+  @include desktop {
+    margin-right: 40px;
+  }
+  @include tablets {
+    margin-left: auto;
+    margin-right: 90px;
+  }
+  @include phones {
+    display: none;
+  }
 }
- 
+
+.hero__hamburger {
+  display: none;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  background-image: url('~images/content/menu.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include tablets {
+    display: block;
+    margin-right: 40px;
+  }
+}
+
 .hero__content {
-    flex: 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  flex: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__btns {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 0;
-    padding-bottom: 70px;
-    text-decoration: none; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  padding-bottom: 70px;
+  text-decoration: none;
 
-    &:hover {
-        .scroll-down__name {
-          color: $accent-color;
-        }
-
-        .scroll-down-btns {
-          fill: $accent-color;
-        }
+  &:hover {
+    .scroll-down__name {
+      color: $accent-color;
     }
+
+    .scroll-down-btns {
+      fill: $accent-color;
+    }
+  }
+
+  @include desktop {
+    display: none;
+  }
+
+  @include phones {
+    display: none;
+  }
 }

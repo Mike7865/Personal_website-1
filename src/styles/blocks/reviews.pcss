@@ -1,10 +1,28 @@
 .reviews {
   width: 1030px;
 
+  @include desktop {
+    max-width: 100%;
+  }
+
+  @include tablets {
+    max-width: 100%;
+    padding: 0 40px;
+  }
+
+  @include phones {
+    max-width: 100%;
+    padding: 0 30px;
+  }
+
   &__header {
     display: flex;
     align-items: center;
     padding-top: 200px;
+
+    @include tablets {
+      flex-direction: column;
+    }
   }
 
   &__title {
@@ -12,11 +30,32 @@
     font-weight: 700;
     color: $text-color;
     line-height: 48px;
+
+    @include desktop {
+      font-size: 30px;
+    }
+
+    @include phones {
+      align-self: flex-start;
+      font-size: 24px;
+    }
   }
 
   &__buttons {
     margin-left: 122px;
     display: flex;
+
+    @include desktop {
+      margin-left: 30px;
+    }
+    
+    @include tablets {
+      margin-top: 17px;
+    }
+
+    @include phones {
+      margin-left: 0;
+    }
   }
 
   &__button {
@@ -31,10 +70,24 @@
       margin-right: 0;
     }
 
-    &:hover {
+    &:not(:disabled):hover {
       border-color: $accent-color;
       .reviews__button-icon {
         fill: $accent-color;
+      }
+    }
+
+     &:disabled {
+      position: relative;
+      opacity: 0.5;
+      cursor: default;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
       }
     }
   }
@@ -51,8 +104,11 @@
 }
 
 .reviews__body {
-  display: flex;
-  align-items: stretch;
+  overflow: hidden;
+
+  @include phones {
+    margin-left: 0;
+  }
 }
 
 .reviews-opinion {
@@ -60,13 +116,29 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  width: 50%;
   margin-top: 101px;
-  margin-right: 84px;
+  padding-right: 84px;
+
+  @include tablets {
+    width: 100%;
+    flex-basis: 100%;
+    flex-shrink: 0;
+    margin-top: 33px;
+  }
+
+  @include phones {
+    margin-left: 30px;
+  }
 }
 
 .reviews-opinion__quotes {
   display: flex;
   margin-bottom: 20px;
+
+  @include desktop {
+    margin-bottom: 20px;
+  }
 }
 
 .quotes__item {
@@ -74,6 +146,15 @@
   width: 75px;
   height: 63px;
   margin-right: 21px;
+
+  @include desktop {
+    width: 30px;
+    height: 26px;
+  }
+
+  @include phones {
+    display: none;
+  }
 }
 
 .quote__icon {
@@ -85,12 +166,31 @@
   font-weight: 600;
   color: rgba(70, 77, 98, 0.5);
   line-height: 30px;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .quotes__reviewer {
   display: flex;
-  //padding-top: 32px;
   margin-left: 105px;
+
+  @include desktop {
+    margin-left: 40px;
+  }
+
+  @include phones {
+    margin-left: 0;
+  }
+}
+
+.reviwer__image {
+  @include desktop {
+    width: 65px;
+    height: 65px;
+  }
 }
 
 .reviwer__info {
@@ -102,6 +202,11 @@
   font-weight: 700;
   color: $text-color;
   line-height: 48px;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .reviwer__position {
@@ -109,4 +214,8 @@
   font-weight: 600;
   color: rgba(70, 77, 98, 0.3);
   line-height: 30px;
+
+  @include desktop {
+    font-size: 14px;
+  }
 }

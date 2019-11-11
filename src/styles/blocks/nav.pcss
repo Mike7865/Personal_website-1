@@ -1,6 +1,15 @@
 .nav__list {
   display: flex;
   align-items: center;
+
+  @include tablets {
+    flex-wrap: wrap;
+    padding-top: 50px;
+  }
+
+  @include phones {
+    justify-content: space-between;
+  }
 }
 
 .nav__item {
@@ -9,14 +18,29 @@
   &:last-child {
     margin-right: 0;
   }
+
+  @include desktop {
+    margin-right: 3vw;
+  }
+
+  @include phones {
+    flex-basis: 50%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
 
 .nav__link {
   text-decoration: none;
   transition: color 0.3s ease;
+  white-space: nowrap;
 
   &:hover {
     font-weight: 600;
     color: $accent-color;
+  }
+
+  @include desktop {
+    font-size: 14px;
   }
 }

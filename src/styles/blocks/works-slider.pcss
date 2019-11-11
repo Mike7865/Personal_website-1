@@ -1,6 +1,9 @@
 .works-slider {
   display: flex;
-  max-width: 1500px;
+
+  @include desktopHd {
+    flex-direction: row;
+  }
 
   @include desktop {
     flex-direction: column;
@@ -17,7 +20,8 @@
     @include desktop {
       align-self: center;
       width: 600px;
-      margin-top: 60px;
+      margin-top: 100px;
+      margin-bottom: -100px;
     }
 
     @include tablets {
@@ -26,6 +30,7 @@
 
     @include phones {
       padding: 0 30px;
+      margin-bottom: 0;
     }
   }
 }

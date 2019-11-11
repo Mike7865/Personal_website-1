@@ -5,6 +5,21 @@
   stroke: grey;
   transform: rotate(180deg);
   position: relative;
+
+  @include desktop {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+.skills {
+  @include tablets {
+    padding-bottom: 40px;
+  }
+
+  @include phones {
+    padding-bottom: 0;
+  }
 }
 
 .skills-row__title {
@@ -28,8 +43,10 @@
     justify-content: center;
   }
 
-  @include tablets {
-    max-width: 400px;
+  @include phones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 50px;
   }
 }
 
@@ -46,7 +63,10 @@
   }
 
   @include phones {
-    margin: 0 15px 25px;
+    margin: 0;
+    &:not(:last-child) {
+      margin-right: 0;
+    }
   }
 }
 
@@ -61,7 +81,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  opacity: .5;
-  transform: translate(-50%, -50%); 
-}
+  opacity: 0.5;
+  transform: translate(-50%, -50%);
 
+  @include desktop {
+    font-size: 16px;
+    line-height: 48px;
+  }
+}

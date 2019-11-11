@@ -2,6 +2,25 @@
   position: relative;
   height: 550px;
 
+  @include desktopHd {
+    width: 735px;
+    height: 353px;
+  }
+
+  @include desktop {
+    width: 100%;
+    padding-left: 40px;
+  }
+
+  @include tablets {
+    height: 55vw;
+    margin-left: -20px;
+  }
+
+  @include phones {
+    max-width: 100%;
+  }
+
   &::after {
     position: absolute;
     content: attr(data-slide);
@@ -11,15 +30,35 @@
     font-size: 400px;
     line-height: 1;
     font-weight: 800;
+
+    @include desktopHd {
+      font-size: 300px;
+    }
+
+    @include desktop {
+      transform: translate(20%, -15%);
+    }
+
+    @include phones {
+      display: none;
+    }
   }
 
   $offset-right: 157px;
+  $offset-right-desktop: 100px;
 
   &__current-slide {
     position: relative;
     z-index: 1;
     margin-right: $offset-right;
     height: 100%;
+
+    @include desktop {
+      margin-right: $offset-right-desktop;
+    }
+    @include phones {
+      margin-right: 0;
+    }
   }
 
   &__current-image {
@@ -31,6 +70,14 @@
   &__buttons {
     position: absolute;
     right: $offset-right;
+    z-index: 1;
+    @include desktop {
+      right: $offset-right-desktop;
+    }
+    @include phones {
+      bottom: 0;
+      right: 0;
+    }
   }
 
   &__thumbs {
@@ -38,5 +85,19 @@
     right: $offset-right;
     bottom: 0;
     z-index: 1;
+    overflow: hidden;
+
+    @include desktopHd {
+      width: 178px;
+      height: 300px;
+    }
+
+    @include desktop {
+      right: $offset-right-desktop;
+    }
+
+    @include phones {
+      right: 0;
+    }
   }
 }

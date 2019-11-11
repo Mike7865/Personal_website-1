@@ -2,28 +2,86 @@
   padding: 100px 0;
   background-color: #252830;
 
+  @include desktop {
+    padding-top: 67px;
+  }
+
   &__container {
     display: flex;
     max-width: 1435px;
     margin: 0 auto;
+
+    @include tablets {
+      flex-direction: column;
+    }   
   }
 
   &__info {
     display: flex;
     margin-right: 140px;
+
+    @include desktopHd {
+      flex-direction: column;
+      margin-left: 59px;
+    }
+
+    @include desktop {
+      margin-right: 0;
+    }
+
+    @include tablets {
+      align-self: center;
+    }
+
+    @include phones {
+      margin-left: -100px;
+    }
   }
-
+  
   &__main {
+    @include desktop {
+      margin-right: 50px;
+      display: flex;
+      flex-direction: column;
+    }
 
+    @include tablets {
+      margin-top: 20px;
+      margin-left: 70px;
+      align-self: center;
+      max-width: 300px;
+    }
+
+    @include phones {
+      margin-top: 0;
+      margin-left: 20px;
+    }
   }
 
   &__menu {
     color: #fff;
+
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   &__content {
     display: flex;
     justify-content: center;
+    padding-top: 70px;
+
+    @include desktop {
+      flex-direction: column;
+      padding-top: 50px;
+    }
+  }
+}
+
+.footer__about-info {
+  @include desktop {
+    margin-right: 20px;
   }
 }
 
@@ -35,6 +93,10 @@
   line-height: 1;
   white-space: nowrap;
   padding-right: 60px;
+
+  @include desktopHd {
+    margin-bottom: 31px;
+  }
 }
 
 .footer__site-owner {
@@ -52,14 +114,11 @@
   color: rgba(255, 255, 255, 0.15);
   line-height: 30px;
   white-space: nowrap;
-}
 
-.footer__content {
-  padding-top: 70px;
-}
-
-.footer__about-info {
-  
+  @include desktop {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .footer__text {
@@ -68,11 +127,24 @@
   color: rgba(255, 255, 255, 0.3);
   padding-bottom: 27px;
   line-height: 30px;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .footer__quote {
   padding-left: 63px;
 
+  @include desktopHd {
+    padding-left: 20px;
+  }
+
+  @include desktop {
+    margin-top: 50px;
+    padding-left: 0;
+  }
 }
 
 .footer__quote-text {
@@ -82,6 +154,11 @@
   color: rgba(255, 255, 255, 0.3);
   line-height: 30px;
   margin-bottom: 35px;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .footer__quote-author {
@@ -90,4 +167,9 @@
   font-style: italic;
   color: #fff;
   line-height: 30px;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }

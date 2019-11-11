@@ -1,22 +1,62 @@
 .about {
+  position: relative;
+  z-index: 1;
   padding-top: 150px;
   padding-bottom: 178px;
+
+  @include desktop {
+    padding-bottom: 150px;
+  }
+
+  @include tablets {
+    padding-bottom: 100px;
+  }
+
+  @include phones {
+    padding-bottom: 50px;
+  }
 }
 
 .about__container {
   display: flex;
   justify-content: center;
   margin-bottom: 60px;
+
+  @include tablets {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .about__left {
   width: 300px;
   margin-right: 118px;
   flex-shrink: 0;
+
+  @include tablets {
+    width: 100%;
+    margin-right: 0;
+  }
 }
 
 .about__right {
   max-width: 528px;
+
+  @include desktop {
+    max-width: 400px;
+  }
+
+  @include tablets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  @include phones {
+    margin-top: 20px;
+    align-items: flex-start;
+  }
 }
 
 .about__prolog {
@@ -25,6 +65,15 @@
   color: rgba(70, 77, 98, 0.5);
   padding-bottom: 30px;
   line-height: 30px;
+
+  @include desktop {
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
+
+  @include phones {
+    margin-top: 41px;
+  }
 }
 
 .about__title {
@@ -33,6 +82,18 @@
   color: #464d62;
   padding-bottom: 38px;
   line-height: 48px;
+
+  @include desktop {
+    font-size: 30px;
+  }
+
+  @include tablets {
+    text-align: center;
+  }
+
+  @include phones {
+    text-align: left;
+  }
 }
 
 .about__text {
@@ -41,6 +102,20 @@
   color: rgba(70, 77, 98, 0.5);
   padding-bottom: 80px;
   line-height: 30px;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 24px;
+    padding-bottom: 46px;
+  }
+
+  @include tablets {
+    text-align: center;
+  }
+
+  @include phones {
+    text-align: left;
+  }
 }
 
 .about__ps {
@@ -49,6 +124,19 @@
   font-style: italic;
   color: rgba(70, 77, 98, 0.5);
   line-height: 30px;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  @include tablets {
+    text-align: center;
+  }
+
+  @include phones {
+    text-align: left;
+  }
 
   &::after {
     position: absolute;
