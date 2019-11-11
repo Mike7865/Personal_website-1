@@ -9,7 +9,7 @@ const skill = {
       const dashArray = parseInt(
       getComputedStyle(circle).getPropertyValue("stroke-dasharray")
     );
-    const percent = (dacjArray / 100) * (100 - this.skillPercent);
+    const percent = (dashArray / 100) * (100 - this.skillPercent);
 
     circle.style.strokeDashoffset = percent;
     }
@@ -19,7 +19,7 @@ const skill = {
   },
 }
 
-const skillRow = {
+const skillsRow = {
   template: "#skills-row",
   components: { skill },
   props: ["skill"]
