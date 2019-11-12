@@ -8,22 +8,22 @@ const thumbs = {
       return [...this.works].reverse();
     }
   }
-}
+};
 
 const btns = {
   template: "#slider-btns"
-}
+};
 
 const display = {
   template: "#slider-display",
   components: { thumbs, btns },
   props: ["works", "currentWork"]
-}
+};
 
 const tags = {
   template: "#slider-tags",
-  prop: ["tag"]
-}
+  props: ["tags"]
+};
 
 const info = {
   template: "#slider-info",
@@ -34,7 +34,7 @@ const info = {
       return this.currentWork.skills.split(", ");
     }
   }
-}
+};
 
 new Vue({
   el: "#slider-component",
@@ -61,17 +61,21 @@ new Vue({
       return data.map(item => {
         const requiredPic = require(`../images/content/${item.photo}`);
         item.photo = requiredPic;
-        return item
-      })
+        return item;
+      });
+    },
+    chooseSlide(workId) {
+      const workIndex = this.works.findIndex(work => work.id === workId);
+      this.currentIndex = workIndex;
     },
     handleSlide(direction) {
-      switch(direction) {
-        case "next":
-          this.currentIndex++;
-          break;
+      switch (direction) {
         case "next":
           this.currentIndex--;
-        break;
+          break;
+        case "prev":
+          this.currentIndex++;
+          break;
       }
     }
   },
