@@ -1,44 +1,124 @@
 <template lang="pug">
   .login-form
     .login-form__title Авторизация
-    button.login-form__close
+    button.login-form__close(@click="exitFromAdmin")
+      icon(name="remove")
     form.login-form__body(@submit.prevent="signIn")
       .login-form__control
-        input(v-model="login" required)
+        basic-input(
+          v-model="name"
+          icon="user"
+          label="Логин"
+        )
       .login-form__control
-        input(v-model="password" type="password" required)
-      .login-form__control
-        button Отправить
+        basic-input(
+          v-model="password"
+          icon="user"
+          label="Пароль"
+          type="password"
+        )
+      .login-form__button
+        basic-button(
+          type="submit"
+          :disabled="isLoading || !name.length || password.length < 4"
+        ) ОТПРАВИТЬ
 </template>
 
 <script>
+import axios from "axios";
+import BasicInput from "./BasicInput.vue";
+import BasicButton from "./BasicButton.vue";
+import Icon from "./Icon.vue";
+
 export default {
+  components: {
+    BasicInput,
+    BasicButton,
+    Icon,
+  },
   data() {
     return {
       login: "",
-      password: ""
+      password: "",
+      isLoading: false,
     };
   },
   methods: {
-    signIn() {
-      axios.post("https//webdev-api.loftschool.com/login", {
-        name: this.login,
-        password: this.password,
-      }) 
-      .then(response => {
-        conslole.log(response);
-      })
-      .catch(e => {
-        conlole.log(e.response.data.error);
-      })
-    }
-  }
+    async signIn() {
+      this.isLoading = true;
+      try {
+        await axios.post('https://webdev-api.loftschool.com/login', { name: this.name, password: this.password});
+        alert("Ок!");
+      } catch (e) {
+        alert(e.response.data.error);
+      }
+      this.password = "";
+      this.isLoading = false;
+    },
+    exitFromAdmin() {
+      location.href = "https://github.com/Mike7865/Personal_website-1";
+    },
+  },
 };
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
+@import "../../styles/mixins";
+
 .login-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 563px;
+  width: 100vw;
+  padding: 60px 78px;
   background-color: white;
-  padding: 50px;
+
+  @include phones {
+    height: 100vh;
+    padding: 30px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: none;
+    fill: $text-color;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    outline: none; 
+    transition: opacity 0.2s ease; 
+    &:hover {
+      opacity:0.3;
+    }
+  }
+
+  &__body {
+    @include phones {
+      align-self: stretch;
+    }
+  }
+
+  &__title {
+    color: $text-color;
+    font-size: 36px;
+    font-weight: 700;
+
+    @include phones {
+      font-size: 30px;
+    }
+  }
+
+  &__control {
+    margin-top: 60px;
+  }
+
+  &__button {
+    margin-top: 40px;
+  }
 }
 </style>
