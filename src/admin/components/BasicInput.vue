@@ -11,73 +11,74 @@
       icon(:name="icon")
     label.basic-input__label {{ label }}
     transition(name="slide-up")
-      .basic-input__error(v-if="errorMessage") {{ errorMessage }}
+      .basic-input__error(v-if="errorMessage")
+        error-tooltip {{ errorMessage }}
 </template>
 
 <script>
-import Icon from './Icon.vue';
 export default {
   components: {
-    Icon,
+    ErrorTooltip: () => import("./ErrorTooltip.vue"),
+    Icon: () => import("./Icon.vue")
   },
   props: {
     value: {
       type: String,
-      default: '',
+      default: ""
     },
     errorMessage: {
       type: String,
-      default: '',
+      default: ""
     },
     required: {
       type: Boolean,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     icon: {
       type: String,
-      default: '',
+      default: ""
     },
     label: {
       type: String,
-      default: '',
+      default: ""
     },
     theme: {
       type: String,
-      default: 'dark',
+      default: "dark"
     },
     type: {
       type: String,
-      default: 'text',
-    },
+      default: "text"
+    }
   },
   computed: {
     listeners() {
       return {
         ...this.$listeners,
-        input: (event) => {
+        input: event => {
           if (!this.disabled) {
-            this.$emit('input', event.target.value);
+            this.$emit("input", event.target.value);
           }
-        },
+        }
       };
     },
     inputClass() {
       return {
-        'basic-input__control_dirty': this.value.length,
-        'basic-input__control_disabled': this.disabled,
-        'basic-input__control_invalid': this.errorMessage,
+        "basic-input__control_dirty": this.value.length,
+        "basic-input__control_disabled": this.disabled,
+        "basic-input__control_invalid": this.errorMessage
       };
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="postcss" scoped>
-@import '../../styles/mixins.pcss';
+@import "../../styles/mixins.pcss";
 .basic-input {
   position: relative;
   width: 100%;
@@ -92,7 +93,6 @@ export default {
     background: none;
     border: none;
     border-bottom: 1px solid $light-gray;
-    outline: none;
     transition: border 0.2s ease;
     &:focus {
       border-bottom-color: $accent-color;
@@ -157,31 +157,6 @@ export default {
     z-index: 1;
     top: 100%;
     left: 45px;
-    padding: 0 20px;
-    color: white;
-    background-color: $danger-color;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 48px;
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      border: 3px solid $danger-color;
-      border-left-width: 5px;
-      border-right-width: 5px;
-    }
-    &::before {
-      border-top-color: transparent;
-      border-left-color: transparent;
-      transform: translateX(-100%);
-    }
-    &::after {
-      border-top-color: transparent;
-      border-right-color: transparent;
-    }
   }
 }
 .slide-up {

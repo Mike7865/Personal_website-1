@@ -1,36 +1,50 @@
 <template lang="pug">
-  .app
-    .login-page 
-      .login-page__form
-        login-form
-    .inner-page 
+  .root-container
+    template(v-if="$route.meta.public")
+      router-view
+    .inner-page(v-else)
       .inner-page__panel
-        header.header
-          .header__avatar
-            img.header__image(src="images/content/user.jpg")
-          .header__content
-            .header__username Михаил Шаров
-            .header__title Панель администрирования
-            a.header__exit-link Выйти
-        .inner-page__navbar
-          .tabs
-            - var tabs = ["Обо мне", "Работы", "Отзывы"];
-              each tab, i in tabs
-                a.tabs__item(class=`${i === 0 ? "tabs__item_active" : ""}`) #{tab}
+        app-header
+      .inner-page__navbar
+        app-tabs
       .inner-page__content
+        router-view
 </template>
 
 <script>
-import LoginForm from "./components/LoginForm.vue";
-
 export default {
-  name: "Main",
   components: {
-    LoginForm
+    AppHeader: () => import("./components/AppHeader.vue"),
+    AppTabs: () => import("./components/Tabs.vue")
   }
 };
 </script>
 
-<style lang="pcss">
+
+<style lang="postcss">
 @import "./styles/main.pcss";
+.admin-wrapper {
+  background-image: url("../images/content/train-bridge.jpg");
+  background-size: 100vw 100vh;
+}
+.inner-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  &__panel {
+    flex-shrink: 0;
+  }
+  &__navbar {
+    padding: 0 60px;
+    background-color: white;
+    @include phones {
+      padding: 0 20px;
+    }
+  }
+  &__content {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+}
 </style>

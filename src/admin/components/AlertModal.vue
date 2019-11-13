@@ -1,38 +1,34 @@
 <template lang="pug">
-  .alert-modal(@click.self="$emit("close")")
+  .alert-modal(@click.self="$emit('close')")
     transition(name="slide-up" appear)
       .alert-modal__form
         .alert-modal__text
           slot
         .alert-modal__button
-          basic-button(@click="$emit("close")") Закрыть
+          basic-button(@click="$emit('close')") Закрыть
 </template>
 
 <script>
-import BasicButton from "./BasicButton.vue";
-
 export default {
   components: {
-    BasicButton,
-  },
+    BasicButton: () => import("./BasicButton.vue")
+  }
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins";
-
+@import "../../styles/mixins.pcss";
 .alert-modal {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba($text-color, 0.9);
   transition: opacity 0.3s ease;
-
   &__form {
     display: flex;
     flex-direction: column;
@@ -47,25 +43,20 @@ export default {
     background-color: white;
     padding: 57px;
     transition: all 0.3s ease;
-
     @include desktop {
       font-size: 34px;
     }
-
     @include tablets {
       font-size: 32px;
     }
-
     @include phones {
       font-size: 28px;
     }
   }
-
   &__text {
     margin-bottom: 30px;
   }
 }
-
 .slide-up {
   &-enter-active,
   &-leave-active {
@@ -77,16 +68,14 @@ export default {
     opacity: 0;
   }
 }
-
 .modal-enter,
 .modal-leave-active {
-  transform: translateY(0, 0);
+  transform: translate(0, 0);
   opacity: 1;
 }
-
-.modal-enter  .modal,
+.modal-enter .modal,
 .modal-leave-active .modal {
-  transform: translateY(0, 50%);
+  transform: translate(0, 50%);
   opacity: 0;
 }
 </style>

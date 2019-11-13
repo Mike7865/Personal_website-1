@@ -8,13 +8,13 @@ export default {
   props: {
     name: {
       type: String,
-      default: "",
+      defauilt: '',
     },
   },
   computed: {
     icon() {
       return require(`../../images/icons/${this.name}.svg`).default;
     }
-  }
+  },
 }
 </script>

@@ -13,7 +13,7 @@
       .login-form__control
         basic-input(
           v-model="password"
-          icon="user"
+          icon="key"
           label="Пароль"
           type="password"
         )
@@ -25,30 +25,29 @@
 </template>
 
 <script>
-import axios from "axios";
-import BasicInput from "./BasicInput.vue";
-import BasicButton from "./BasicButton.vue";
-import Icon from "./Icon.vue";
-
+import axios from "../requests";
 export default {
   components: {
-    BasicInput,
-    BasicButton,
-    Icon,
+    BasicInput: () => import("./BasicInput.vue"),
+    BasicButton: () => import("./BasicButton.vue"),
+    Icon: () => import("./Icon.vue")
   },
   data() {
     return {
-      login: "",
+      name: "",
       password: "",
-      isLoading: false,
+      isLoading: false
     };
   },
   methods: {
     async signIn() {
       this.isLoading = true;
       try {
-        await axios.post('https://webdev-api.loftschool.com/login', { name: this.name, password: this.password});
-        alert("Ок!");
+        await axios.post("/login", {
+          name: this.name,
+          password: this.password
+        });
+        alert("Ok!");
       } catch (e) {
         alert(e.response.data.error);
       }
@@ -57,14 +56,13 @@ export default {
     },
     exitFromAdmin() {
       location.href = "https://github.com/Mike7865/Personal_website-1";
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins";
-
+@import "../../styles/mixins.pcss";
 .login-form {
   position: relative;
   display: flex;
@@ -75,12 +73,10 @@ export default {
   width: 100vw;
   padding: 60px 78px;
   background-color: white;
-
   @include phones {
     height: 100vh;
     padding: 30px;
   }
-
   &__close {
     position: absolute;
     top: 30px;
@@ -90,33 +86,28 @@ export default {
     width: 20px;
     height: 20px;
     padding: 0;
-    outline: none; 
-    transition: opacity 0.2s ease; 
+    outline: none;
+    transition: opacity 0.2s ease;
     &:hover {
-      opacity:0.3;
+      opacity: 0.3;
     }
   }
-
   &__body {
     @include phones {
       align-self: stretch;
     }
   }
-
   &__title {
     color: $text-color;
     font-size: 36px;
     font-weight: 700;
-
     @include phones {
       font-size: 30px;
     }
   }
-
   &__control {
     margin-top: 60px;
   }
-
   &__button {
     margin-top: 40px;
   }
