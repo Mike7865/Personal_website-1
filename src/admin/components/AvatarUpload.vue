@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { renderer, getAbsoluteImgPath } from "../helpers/pictures";
+import { renderer, getAbsoluteImgPath } from "../components/helpers/pictures";
 export default {
   components: {
     ErrorTooltip: () => import("./ErrorTooltip.vue"),
@@ -120,7 +120,7 @@ export default {
     height: 200px;
     border-radius: 50%;
     background-color: $placeholder-color;
-    background-image: url("~images/content/man-user.png");
+    background-image: url("../images/content/user.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 85px 113px;

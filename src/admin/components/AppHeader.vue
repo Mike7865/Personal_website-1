@@ -1,7 +1,7 @@
 <template lang="pug">
   header.header
     .header__avatar
-      img.header__image(src="images/content/user.jpg")
+      img.header__image(src="../images/content/user.jpg")
     .header__content
       .header__username Михаил Шаров
       .header__title Панель администрирования

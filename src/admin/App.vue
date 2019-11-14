@@ -24,7 +24,7 @@ export default {
 <style lang="postcss">
 @import "./styles/main.pcss";
 .admin-wrapper {
-  background-image: url("../images/content/train-bridge.jpg");
+  background-image: url("../admin/images/content/login-bg.png");
   background-size: 100vw 100vh;
 }
 .inner-page {

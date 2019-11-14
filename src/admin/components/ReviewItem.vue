@@ -1,10 +1,10 @@
 <template lang="pug">
   card.review-item(:class="{ 'review-item_active': isActive }")
     .review-item__header(slot="title")
-      img.review-item__user-avatar(:src="imageSrc")
+      img.review-item__user-avatarimg(:src="require(`../../images/content/${review.photo}`)")
       .review-item__user-info
         .review-item__user-name {{ review.author }}
-        .review-item__user-position {{ review.occ }}
+        .review-item__user-position {{ review.position }}
     template(slot="content")
       .review-item__text {{ review.text }}
       .review-item__controls
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { getAbsoluteImgPath } from "../helpers/pictures";
+import { getAbsoluteImgPath } from "../components/helpers/pictures";
 export default {
   components: {
     Card: () => import("./Card.vue"),
