@@ -1,19 +1,19 @@
 <template lang="pug">
-  card.review-item(:class="{ 'review-item_active': isActive }")
-    .review-item__header(slot="title")
-      img.review-item__user-avatarimg(:src="require(`../../images/${review.photo}`)")
-      .review-item__user-info
-        .review-item__user-name {{ review.author }}
-        .review-item__user-position {{ review.position }}
+  card.works-item(:class="{ 'works-item_active': isActive }")
+    .works-item__header(slot="title")
+      img.works-item__user-avatarimg(:src="require(`../../images/${work.photo}`)")
+      .works-item__user-info
+        .works-item__user-name {{ work.author }}
+        .works-item__user-position {{ work.position }}
     template(slot="content")
-      .review-item__text {{ review.text }}
-      .review-item__controls
-        button.review-item__button.review-item__button_edit(@click="$emit('edit')")
-          .review-item__button-text Править
-          icon.review-item__button-icon_edit(name="pencil")
-        button.review-item__button.review-item__button_delete(@click="$emit('delete')")
-          .review-item__button-text Удалить
-          icon.review-item__button-icon_delete(name="cross")
+      .works-item__text {{ work.text }}
+      .works-item__controls
+        button.works-item__button.works-item__button_edit(@click="$emit('edit')")
+          .works-item__button-text Править
+          icon.works-item__button-icon_edit(name="pencil")
+        button.works-item__button.works-item__button_delete(@click="$emit('delete')")
+          .works-item__button-text Удалить
+          icon.works-item__button-icon_delete(name="cross")
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
     Icon: () => import("./Icon.vue")
   },
   props: {
-    review: {
+    work: {
       type: Object,
       default: {}
     },
@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     imageSrc() {
-      return getAbsoluteImgPath(this.review.photo);
+      return getAbsoluteImgPath(this.work.photo);
     }
   }
 };
@@ -46,7 +46,7 @@ export default {
 
 <style lang="postcss" scoped>
 @import "../../styles/mixins.pcss";
-.review-item {
+.works-item {
   position: relative;
   &_active::after {
     position: absolute;

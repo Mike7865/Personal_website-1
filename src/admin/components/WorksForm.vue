@@ -1,38 +1,42 @@
 <template lang="pug">
-  card.new-review
-    .new-review__header(slot="title") Новый отзыв
+  card.new-work
+    .new-work__header(slot="title") Редактирование работы
     template(slot="content")
-      form.new-review__form(@submit.prevent="onSubmit")
-        .new-review__photo
+      form.new-work__form(@submit.prevent="onSubmit")
+        .new-work__photo
           avatar-upload(
-            v-model="reviewData.photo"
-            :error-message="validation.firstError('reviewData.photo')"
+            v-model="workData.photo"
+            :error-message="validation.firstError('workData.photo')"
           )
-        .new-review__name
+        .new-work__title
           simple-input(
-            label="Имя автора"
-            v-model="reviewData.author"
-            :error-message="validation.firstError('reviewData.author')"
+            label="Название"
+            v-model="workData.title"
+            :error-message="validation.firstError('reviewData.title')"
           )
-        .new-review__position
+        .new-work__link
           simple-input(
-            label="Титул автора"
-            v-model="reviewData.position"
-            :error-message="validation.firstError('reviewData.position')"
+            label="Ссылка"
+            v-model="workData.link"
+            :error-message="validation.firstError('workData.link')"
           )
-        .new-review__text
+        .new-work__text
           simple-textarea(
-            label="Отзыв"
-            v-model="reviewData.text"
-            :error-message="validation.firstError('reviewData.text')"
+            label="Описание"
+            v-model="workData.text"
+            :error-message="validation.firstError('workData.text')"
           )
-        .new-review__controls
-          basic-button.new-review__button(
+        .new-work__tags
+          tags-input(
+            v-model="technologies"
+          )
+        .new-work__controls
+          basic-button.new-work__button(
             size="small"
             display="flat"
             @click="$emit('reset')"
           ) Отмена
-          basic-button.new-review__button.new-review__button_save(
+          basic-button.new-work__button.new-work__button_save(
             type="submit"
             size="small"
             :bordered="true"
@@ -41,9 +45,9 @@
 
 <script>
 import SimpleVueValidation, { Validator } from "simple-vue-validator";
-const emptyReviewData = {
-  author: "",
-  occ: "",
+const emptyWorkData = {
+  title: "",
+  link: "",
   text: "",
   photo: null
 };
@@ -53,7 +57,8 @@ export default {
     SimpleInput: () => import("./SimpleInput.vue"),
     SimpleTextarea: () => import("./SimpleTextarea.vue"),
     BasicButton: () => import("./BasicButton.vue"),
-    AvatarUpload: () => import("./AvatarUpload.vue")
+    //WorkUpload: () => import("./WorkUpload.vue"),
+    TagsInput: () => import("./TagsInput")
   },
   props: {
     currentReview: {
@@ -70,7 +75,8 @@ export default {
   mixins: [SimpleVueValidation.mixin],
   data() {
     return {
-      reviewData: {}
+      reviewData: {},
+      technologies: "HTML, CSS, JS"
     };
   },
   validators: {
@@ -116,14 +122,14 @@ export default {
 
 <style lang="postcss" scoped>
 @import "../../styles/mixins.pcss";
-.new-review {
+.new-work {
   &__header {
     font-size: 18px;
     padding: 10px;
   }
   &__form {
     display: grid;
-    grid-template-columns: 200px 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(3, auto);
     grid-gap: 30px;
     max-width: 841px;
