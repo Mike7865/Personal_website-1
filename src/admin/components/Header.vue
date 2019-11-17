@@ -5,12 +5,14 @@
     .header__content
       .header__username Михаил Шаров
       .header__title Панель администрирования
-      a.header__exit-link Выйти
+      a.header__exit-link(@click="signOut") Выйти
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   methods: {
+    ...mapActions("user", ["logout"]),
     signOut() {
       this.logout();
       this.$router.replace("/login");
@@ -27,7 +29,7 @@ export default {
   align-items: center;
   height: 80px;
   padding: 0 60px;
-  background-image: linear-gradient(to right, #3e3e59 0%, #454573 100%);
+  background-color: #3e3e59;
   color: white;
   @include desktop {
     padding: 0 30px;

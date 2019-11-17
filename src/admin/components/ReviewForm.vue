@@ -17,8 +17,8 @@
         .new-review__position
           simple-input(
             label="Титул автора"
-            v-model="reviewData.position"
-            :error-message="validation.firstError('reviewData.position')"
+            v-model="reviewData.occ"
+            :error-message="validation.firstError('reviewData.occ')"
           )
         .new-review__text
           simple-textarea(
@@ -30,92 +30,101 @@
           basic-button.new-review__button(
             size="small"
             display="flat"
+            :disabled="isSending"
             @click="$emit('reset')"
           ) Отмена
           basic-button.new-review__button.new-review__button_save(
             type="submit"
             size="small"
             :bordered="true"
+            :disabled="isSending"
           ) Сохранить
 </template>
 
 <script>
-import SimpleVueValidation, { Validator } from "simple-vue-validator";
+import SimpleVueValidation, { Validator } from 'simple-vue-validator';
+import Card from '../components/Card';
+import SimpleInput from '../components/SimpleInput';
+import SimpleTextarea from '../components/SimpleTextarea';
+import BasicButton from '../components/BasicButton';
+import AvatarUpload from '../components/AvatarUpload';
 const emptyReviewData = {
-  author: "",
-  occ: "",
-  text: "",
-  photo: null
+  author: '',
+  occ: '',
+  text: '',
+  photo: null,
 };
 export default {
   components: {
-    Card: () => import("./Card.vue"),
-    SimpleInput: () => import("./SimpleInput.vue"),
-    SimpleTextarea: () => import("./SimpleTextarea.vue"),
-    BasicButton: () => import("./BasicButton.vue"),
-    AvatarUpload: () => import("./AvatarUpload.vue")
+    Card,
+    SimpleInput,
+    SimpleTextarea,
+    BasicButton,
+    AvatarUpload,
   },
   props: {
     currentReview: {
       type: Object,
-      default: null
+      default: null,
+    },
+    isSending: {
+      type: Boolean,
+      default: false
     }
   },
   watch: {
     currentReview() {
       this.updateReviewData();
       this.validation.reset();
-    }
+    },
   },
   mixins: [SimpleVueValidation.mixin],
   data() {
     return {
-      reviewData: {}
+      reviewData: emptyReviewData,
     };
   },
   validators: {
-    "reviewData.author": value => {
-      return Validator.value(value).required("Введите автора");
+    'reviewData.author': (value) => {
+      return Validator.value(value).required('Введите автора');
     },
-    "reviewData.occ": value => {
-      return Validator.value(value).required("Введите титул");
+    'reviewData.occ': (value) => {
+      return Validator.value(value).required('Введите титул');
     },
-    "reviewData.text": value => {
-      return Validator.value(value).required("Введите текст отзыва");
+    'reviewData.text': (value) => {
+      return Validator.value(value).required('Введите текст отзыва');
     },
-    "reviewData.photo": value => {
-      return Validator.value(value).required("Загрузите фото");
-    }
+    'reviewData.photo': (value) => {
+      return Validator.value(value).required('Загрузите фото');
+    },
   },
   computed: {
     title() {
-      return this.currentReview ? "Редактирование отзыва" : "Новый отзыв";
-    }
+      return this.currentReview ? 'Редактирование отзыва' : 'Новый отзыв';
+    },
   },
   methods: {
     updateReviewData() {
-      this.reviewData = this.currentReview
-        ? { ...this.currentReview }
-        : { ...emptyReviewData };
+      this.reviewData = this.currentReview ? { ...this.currentReview } : { ...emptyReviewData };
     },
     onSubmit() {
-      this.$validate().then(success => {
+      this.$validate().then((success) => {
         if (success) {
-          const eventType = this.currentReview ? "update" : "create";
+          const eventType = this.currentReview ? 'update' : 'create';
           this.$emit(eventType, this.reviewData);
           this.validation.reset();
         }
       });
-    }
+    },
   },
   created() {
     this.updateReviewData();
-  }
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .new-review {
   &__header {
     font-size: 18px;

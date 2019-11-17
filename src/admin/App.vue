@@ -1,50 +1,43 @@
 <template lang="pug">
-  .root-container
-    template(v-if="$route.meta.public")
-      router-view
-    .inner-page(v-else)
-      .inner-page__panel
-        app-header
-      .inner-page__navbar
-        app-tabs
-      .inner-page__content
-        router-view
+  #app
+    router-view
+    .tooltip-container(:class="{ 'tooltip-container_showed': showed }")
+      tooltip
 </template>
 
 <script>
+import { mapState, mapActions, mapGetters } from 'vuex';
+import Tooltip from './components/Tooltip';
 export default {
   components: {
-    AppHeader: () => import("./components/AppHeader.vue"),
-    AppTabs: () => import("./components/Tabs.vue")
-  }
+    Tooltip,
+  },
+  computed: {
+    ...mapState('tooltips', {
+      showed: (state) => state.showed,
+    }),
+  },
 };
 </script>
 
-
 <style lang="postcss">
-@import "./styles/main.pcss";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@import 'normalize.css';
+@import '../styles/mixins.pcss';
+@import '../styles/layout/base.pcss';
 .admin-wrapper {
-  background-image: url("../admin/images/content/login-bg.png");
-  background-size: 100vw 100vh;
+  background-image: url('../admin/images/content/login-bg.png');
+  background-size: cover;
 }
-.inner-page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.9);
-  &__panel {
-    flex-shrink: 0;
-  }
-  &__navbar {
-    padding: 0 60px;
-    background-color: white;
-    @include phones {
-      padding: 0 20px;
-    }
-  }
-  &__content {
-    flex-grow: 1;
-    overflow-y: auto;
+.tooltip-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+  transition: 0.3s transform ease;
+  &_showed {
+    transform: translate(0);
   }
 }
 </style>

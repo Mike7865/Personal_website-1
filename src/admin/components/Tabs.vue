@@ -11,29 +11,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-      tabs: [
-        {
-          name: "Обо мне",
-          link: "/"
-        },
-        {
-          name: "Работы",
-          link: "/works"
-        },
-        {
-          name: "Отзывы",
-          link: "/reviews"
-        }
-      ]
-    };
+  props: {
+    tabs: {
+      type: Array,
+      default: () => [],
+    }
   }
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .tabs {
   display: flex;
   align-items: center;
@@ -58,7 +46,7 @@ export default {
       color: $accent-color;
       font-weight: 600;
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         bottom: -1px;
         left: 0;

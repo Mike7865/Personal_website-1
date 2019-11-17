@@ -5,30 +5,30 @@
 </template>
 
 <script>
-import Tag from "./Tag.vue";
+import Tag from '../components/Tag';
 export default {
   components: {
-    Tag
+    Tag,
   },
   props: {
     tags: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     isReadonly: {
       type: Boolean,
-      default: true
+      default: true,
     },
     color: {
-      type: "white" | "gray",
-      default: "white"
-    }
-  }
+      type: 'white' | 'gray',
+      default: 'white',
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .tags {
   display: flex;
   align-items: center;
@@ -36,6 +36,7 @@ export default {
   &__item {
     margin: 5px 8px;
     margin-left: 0;
+    background-color: white;
     color: rgba($text-color, 0.7);
     font-size: 13px;
     font-weight: 600;

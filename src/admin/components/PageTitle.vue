@@ -3,7 +3,7 @@
 </template>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .page-title {
   color: $text-color;
   font-size: 21px;

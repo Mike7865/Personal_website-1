@@ -9,15 +9,16 @@
 </template>
 
 <script>
+import BasicButton from '../components/BasicButton';
 export default {
   components: {
-    BasicButton: () => import("./BasicButton.vue")
-  }
+    BasicButton,
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .alert-modal {
   position: fixed;
   top: 0;

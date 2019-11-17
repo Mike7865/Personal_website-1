@@ -1,11 +1,19 @@
 import Vue from 'vue';
+import SimpleVueValidation from 'simple-vue-validator';
+import VueScrollTo from 'vue-scrollto';
 import App from './App.vue';
 import router from './router';
+import store from './store';
+import requests from './requests';
 import './focus';
 
+Vue.use(SimpleVueValidation);
+Vue.use(VueScrollTo);
+store.$axios = requests;
 
 new Vue({
-  el: "#app-root",
+  el: '#app-root',
   router,
-  render: h => h(App),
+  store,
+  render: (h) => h(App),
 });

@@ -2,41 +2,66 @@
   .tags-input
     simple-input(
       :value="value"
+      :label="label"
+      :error-message="errorMessage"
       @input="$emit('input', $event)"
     )
-    tags(
-      :tags="tags"
-      :is-readonly="false"
-      color="gray"
-      @remove="onRemoveTag"
-    )
+    .tags-input__tags
+      tags(:tags="tags" :is-readonly="false" color="gray" @remove="onRemoveTag")
 </template>
 
 <script>
+import SimpleInput from '../components/SimpleInput';
+import Tags from '../components/Tags';
 export default {
   components: {
-    SimpleInput: () => import("./SimpleInput.vue"),
-    Tags: () => import("./Tags.vue")
+    SimpleInput,
+    Tags,
   },
   props: {
     value: {
+      type: String | Number,
+      default: '',
+    },
+    label: {
       type: String,
-      default: ""
-    }
+      default: '',
+    },
+    errorMessage: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     tags() {
       return this.value
-        .split(",")
-        .map(substr => substr.trim())
-        .filter(tag => !!tag);
-    }
+        .split(',')
+        .map((tag) => tag.trim())
+        .filter((value) => !!value);
+    },
   },
   methods: {
     onRemoveTag(index) {
       const filteredTags = this.tags.filter((tag, i) => i !== index);
-      this.$emit("input", filteredTags.join(", "));
-    }
-  }
+      this.$emit('input', filteredTags.join(', '));
+    },
+  },
 };
 </script>
+
+<style lang="postcss" scoped>
+@import '../../styles/mixins.pcss';
+.tags-input {
+  position: relative;
+  width: 100%;
+  &__tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
+  &__tag {
+    margin-right: 9px;
+  }
+}
+</style>

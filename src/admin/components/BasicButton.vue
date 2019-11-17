@@ -1,4 +1,3 @@
-  
 <template lang="pug">
    button.basic-button(
      :class="buttonClass"
@@ -13,71 +12,72 @@
 </template>
 
 <script>
+import Icon from '../components/Icon';
 export default {
   components: {
-    Icon: () => import("./Icon.vue")
+    Icon,
   },
   props: {
     theme: {
-      type: "primary" | "default",
-      default: "primary"
+      type: 'primary' | 'default',
+      default: 'primary',
     },
     type: {
       type: String,
-      default: "button"
+      default: 'button',
     },
     display: {
-      type: "filled" | "border" | "flat",
-      default: "filled"
+      type: 'filled' | 'border' | 'flat',
+      default: 'filled',
     },
     size: {
-      type: "large" | "default" | "small",
-      default: "default"
+      type: 'large' | 'default' | 'small',
+      default: 'default',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     bordered: {
       type: Boolean,
-      default: false
+      default: false,
     },
     circle: {
       type: Boolean,
-      default: false
+      default: false,
     },
     icon: {
       type: String,
-      default: ""
-    }
+      default: '',
+    },
   },
   computed: {
     listerers() {
       return {
         ...this.$listeners,
-        click: event => {
+        click: (event) => {
           if (!this.disabled) {
-            this.$emit("click", event);
+            this.$emit('click', event);
           }
-        }
+        },
       };
     },
     buttonClass() {
       return {
-        "basic-button_circle": this.circle,
-        "basic-button_disabled": this.disabled,
-        "basic-button_bordered": this.bordered,
+        'basic-button_circle': this.circle,
+        'basic-button_disabled': this.disabled,
+        'basic-button_bordered': this.bordered,
         [`basic-button_${this.size}`]: true,
         [`basic-button_${this.display}`]: true,
-        [`basic-button_${this.theme}`]: true
+        [`basic-button_${this.theme}`]: true,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .basic-button {
   position: relative;
   display: flex;
@@ -103,7 +103,7 @@ export default {
       background-image: $primary-gradient;
     }
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -114,6 +114,9 @@ export default {
   }
   &_flat {
     background-image: none;
+    &:hover {
+      background-image: none;
+    }
     &:not(.basic-button_disabled):hover {
       background-image: none;
       opacity: 0.6;

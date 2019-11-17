@@ -1,68 +1,71 @@
 <template lang="pug">
-  .login-form
-    .login-form__title Авторизация
-    button.login-form__close(@click="exitFromAdmin")
-      icon(name="remove")
-    form.login-form__body(@submit.prevent="signIn")
-      .login-form__control
-        basic-input(
-          v-model="name"
-          icon="user"
-          label="Логин"
-        )
-      .login-form__control
-        basic-input(
-          v-model="password"
-          icon="key"
-          label="Пароль"
-          type="password"
-        )
-      .login-form__button
-        basic-button(
-          type="submit"
-          :disabled="isLoading || !name.length || password.length < 4"
-        ) ОТПРАВИТЬ
+    //- transition(name="slide-up" appear)
+    .login-form
+      .login-form__title Авторизация
+      button.login-form__close(@click="exitFromAdmin")
+        icon(name="remove")
+      form.login-form__body(@submit.prevent="signIn")
+        .login-form__control
+          basic-input(
+            v-model="name"
+            icon="user"
+            label="Логин"
+          )
+        .login-form__control
+          basic-input(
+            v-model="password"
+            icon="key"
+            label="Пароль"
+            type="password"
+          )
+        .login-form__button
+          basic-button(
+            type="submit"
+            :disabled="isLoading || !name.length || password.length < 4"
+          ) ОТПРАВИТЬ
 </template>
 
 <script>
-import axios from "../requests";
+import { mapActions } from 'vuex';
+import BasicInput from '../components/BasicInput';
+import BasicButton from '../components/BasicButton';
+import Icon from '../components/Icon';
 export default {
   components: {
-    BasicInput: () => import("./BasicInput.vue"),
-    BasicButton: () => import("./BasicButton.vue"),
-    Icon: () => import("./Icon.vue")
+    BasicInput,
+    BasicButton,
+    Icon,
   },
   data() {
     return {
-      name: "",
-      password: "",
-      isLoading: false
+      name: 'test-241019',
+      password: '12345',
+      isLoading: false,
     };
   },
   methods: {
+    ...mapActions('user', ['login']),
+    ...mapActions('tooltips', ['showTooltip']),
     async signIn() {
       this.isLoading = true;
       try {
-        await axios.post("/login", {
-          name: this.name,
-          password: this.password
-        });
-        alert("Ok!");
-      } catch (e) {
-        alert(e.response.data.error);
+        await this.login({ name: this.name, password: this.password });
+        this.$router.replace('/');
+      } catch (error) {
+        this.showTooltip({ type: 'error', text: error.message, duration: 3000 });
+        this.password = '';
       }
-      this.password = "";
       this.isLoading = false;
     },
     exitFromAdmin() {
-      location.href = "https://github.com/Mike7865/Personal_website-1";
-    }
-  }
+      location.href = 'https://tanyachickk.github.io/loftschool-course';
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .login-form {
   position: relative;
   display: flex;
@@ -86,7 +89,6 @@ export default {
     width: 20px;
     height: 20px;
     padding: 0;
-    outline: none;
     transition: opacity 0.2s ease;
     &:hover {
       opacity: 0.3;
@@ -112,4 +114,21 @@ export default {
     margin-top: 40px;
   }
 }
+/* .slide-up {
+  &-enter-to,
+  &-leave {
+    transition: all 0.3s ease;
+  }
+  &-enter,
+  &-leave-to {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  @include phones {
+    &-enter-to,
+    &-leave {
+      transition: none;
+    }
+  }
+} */
 </style>

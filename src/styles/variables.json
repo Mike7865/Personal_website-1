@@ -9,6 +9,8 @@
   "light-gray": "#898989",
   "extra-light-gray": "#f0f0f0",
   "success-color": "#00d70a",
+  "success-notify": "#4bb133",
+  "error-notify": "#b13333",
   "placeholder-color": "#dee4ed",
   "primary-gradient": "linear-gradient(to right, #9300e8, #4a00ed)",
   "reverse-gradient": "linear-gradient(to right, #bb00ff 0%, #5900ff 100%)",

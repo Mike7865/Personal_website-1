@@ -17,73 +17,72 @@
 </template>
 
 <script>
+import ErrorTooltip from '../components/ErrorTooltip';
 export default {
   components: {
-    ErrorTooltip: () => import("./ErrorTooltip.vue")
+    ErrorTooltip,
   },
   props: {
     value: {
       type: String | Number,
-      default: ""
+      default: '',
     },
     label: {
       type: String,
-      default: ""
+      default: '',
     },
     errorMessage: {
       type: String,
-      default: ""
+      default: '',
     },
     placeholder: {
       type: String,
-      default: ""
+      default: '',
     },
     readonly: {
       type: Boolean,
-      default: false
+      default: false,
     },
     maxHeight: {
       type: Number,
-      default: 120
+      default: 120,
     },
     size: {
       type: String,
-      default: "default"
+      default: 'default',
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     listeners() {
       return {
         ...this.$listeners,
-        input: event => {
+        input: (event) => {
           if (!this.disabled) {
-            this.$emit("input", event.target.value);
-            this.$refs.textarea.style.height = "auto";
+            this.$emit('input', event.target.value);
+            this.$refs.textarea.style.height = 'auto';
             const scrollHeight =
-              this.$refs.textarea.scrollHeight > this.maxHeight
-                ? this.maxHeight
-                : this.$refs.textarea.scrollHeight;
+              this.$refs.textarea.scrollHeight > this.maxHeight ? this.maxHeight : this.$refs.textarea.scrollHeight;
             this.$refs.textarea.style.height = `${scrollHeight}px`;
           }
-        }
+        },
       };
     },
     inputClass() {
       return {
         [`simple-textarea__control_${this.size}`]: true,
-        "simple-textarea__control_error": this.errorMessage
+        'simple-textarea__control_error': this.errorMessage,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .simple-textarea {
   position: relative;
   line-height: 0;
@@ -122,7 +121,7 @@ export default {
   }
   &_disabled {
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;

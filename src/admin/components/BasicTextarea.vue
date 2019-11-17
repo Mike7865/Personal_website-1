@@ -16,67 +16,69 @@
 </template>
 
 <script>
+import ErrorTooltip from '../components/ErrorTooltip';
+import Icon from '../components/Icon';
 export default {
   components: {
-    ErrorTooltip: () => import("./ErrorTooltip.vue"),
-    Icon: () => import("./Icon.vue")
+    ErrorTooltip,
+    Icon,
   },
   props: {
     value: {
       type: String,
-      default: ""
+      default: '',
     },
     errorMessage: {
       type: String,
-      default: ""
+      default: '',
     },
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     icon: {
       type: String,
-      default: ""
+      default: '',
     },
     label: {
       type: String,
-      default: ""
+      default: '',
     },
     theme: {
       type: String,
-      default: "dark"
-    }
+      default: 'dark',
+    },
   },
   computed: {
     listeners() {
       return {
         ...this.$listeners,
-        input: event => {
+        input: (event) => {
           if (!this.disabled) {
-            this.$emit("input", event.target.value);
-            this.$refs.textarea.style.height = "auto";
+            this.$emit('input', event.target.value);
+            this.$refs.textarea.style.height = 'auto';
             this.$refs.textarea.style.height = `${this.$refs.textarea.scrollHeight}px`;
           }
-        }
+        },
       };
     },
     inputClass() {
       return {
-        "basic-textarea__control_dirty": this.value.length,
-        "basic-textarea__control_disabled": this.disabled,
-        "basic-textarea__control_invalid": this.errorMessage
+        'basic-textarea__control_dirty': this.value.length,
+        'basic-textarea__control_disabled': this.disabled,
+        'basic-textarea__control_invalid': this.errorMessage,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .basic-textarea {
   position: relative;
   line-height: 0;

@@ -1,10 +1,10 @@
 <template lang="pug">
   card.review-item(:class="{ 'review-item_active': isActive }")
     .review-item__header(slot="title")
-      img.review-item__user-avatarimg(:src="require(`../../images/${review.photo}`)")
+      img.review-item__user-avatar(:src="imageSrc")
       .review-item__user-info
         .review-item__user-name {{ review.author }}
-        .review-item__user-position {{ review.position }}
+        .review-item__user-position {{ review.occ }}
     template(slot="content")
       .review-item__text {{ review.text }}
       .review-item__controls
@@ -17,21 +17,23 @@
 </template>
 
 <script>
-import { getAbsoluteImgPath } from "../components/helpers/pictures";
+import { getAbsoluteImgPath } from '../helpers/pictures';
+import Card from '../components/Card';
+import Icon from '../components/Icon';
 export default {
   components: {
-    Card: () => import("./Card.vue"),
-    Icon: () => import("./Icon.vue")
+    Card,
+    Icon,
   },
   props: {
     review: {
       type: Object,
-      default: {}
+      default: {},
     },
     isActive: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {};
@@ -39,18 +41,18 @@ export default {
   computed: {
     imageSrc() {
       return getAbsoluteImgPath(this.review.photo);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .review-item {
   position: relative;
   &_active::after {
     position: absolute;
-    content: "";
+    content: '';
     top: 0;
     left: 0;
     right: 0;
@@ -101,7 +103,7 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 0;
-    background-color: white;
+    background-color: transparent;
     &:hover {
       opacity: 0.7;
     }

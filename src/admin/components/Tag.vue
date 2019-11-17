@@ -6,26 +6,26 @@
 </template>
 
 <script>
-import Icon from "./Icon.vue";
+import Icon from '../components/Icon';
 export default {
   components: {
-    Icon
+    Icon,
   },
   props: {
     isReadonly: {
       type: Boolean,
-      default: true
+      default: true,
     },
     color: {
-      type: "white" | "gray",
-      default: "white"
-    }
-  }
+      type: 'white' | 'gray',
+      default: 'white',
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .tag {
   display: flex;
   justify-content: space-between;

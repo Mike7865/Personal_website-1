@@ -1,17 +1,7 @@
 <template lang="pug">
   .avatar-upload
-    label.avatar-upload__control(
-      for="file-input"
-      :class="{ 'avatar-upload__control_drag': isDragImage }"
-      @dragenter.prevent="dragenterFocusIn"
-      @dragover.prevent="dragenterFocusIn"
-      @dragleave.prevent="dragenterFocusOut"
-      @drop.prevent="handleDrop"
-    )
-      img.avatar-upload__image(
-        v-if="renderedPhoto && !isDragImage"
-        :src="renderedPhoto"
-      )
+    label.avatar-upload__control(for="file-input")
+      img.avatar-upload__image(v-if="renderedPhoto" :src="renderedPhoto")
     input.avatar-upload__file#file-input(
       ref="file-input"
       type="file"
@@ -21,7 +11,7 @@
     basic-button.avatar-upload__button(
       size="small"
       display="flat"
-      @click="uploadFile($event.target.files[0])"
+      @click="uploadFile"
     ) {{ value ? 'Изменить фото' : 'Добавить фото' }}
     transition(name="slide-up")
       .avatar-upload__error(v-if="errorMessage")
@@ -29,88 +19,20 @@
 </template>
 
 <script>
-import { renderer, getAbsoluteImgPath } from "../components/helpers/pictures";
+import ErrorTooltip from '../components/ErrorTooltip';
+import BasicButton from '../components/BasicButton';
+import uploader from '../mixins/uploader';
 export default {
   components: {
-    ErrorTooltip: () => import("./ErrorTooltip.vue"),
-    BasicButton: () => import("./BasicButton.vue")
+    ErrorTooltip,
+    BasicButton,
   },
-  props: {
-    value: {
-      type: File | String,
-      default: null
-    },
-    maxSize: {
-      type: Number,
-      default: 1500000
-    },
-    errorMessage: {
-      type: String,
-      default: ""
-    }
-  },
-  watch: {
-    value(value) {
-      this.setRenderedPhoto();
-    }
-  },
-  data() {
-    return {
-      isDragImage: false,
-      renderedPhoto: null
-    };
-  },
-  methods: {
-    uploadFile() {
-      this.$refs["file-input"].click();
-    },
-    setRenderedPhoto() {
-      if (typeof this.value === "string") {
-        this.renderedPhoto = getAbsoluteImgPath(this.value);
-      } else {
-        if (this.value) {
-          this.renderPhoto(this.value);
-        } else {
-          this.renderedPhoto = null;
-        }
-      }
-    },
-    async renderPhoto(file) {
-      try {
-        const rendererResult = await renderer(file);
-        this.renderedPhoto = rendererResult;
-      } catch (error) {
-        alert(error.message);
-        this.$emit("input", null);
-      }
-    },
-    dragenterFocusIn(e) {
-      this.isDragImage = true;
-    },
-    dragenterFocusOut() {
-      this.isDragImage = false;
-    },
-    handleDrop({ dataTransfer }) {
-      const file = dataTransfer.files[0];
-      this.handlePhotoUpload(file);
-      this.isDragImage = false;
-    },
-    async handlePhotoUpload(file) {
-      if (file.size > this.maxSize) {
-        alert("Слишком большой размер файла (максимум 1.5MB)");
-        return;
-      }
-      this.$emit("input", file);
-    }
-  },
-  created() {
-    this.setRenderedPhoto();
-  }
+  mixins: [uploader],
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .avatar-upload {
   position: relative;
   &__control {
@@ -120,7 +42,7 @@ export default {
     height: 200px;
     border-radius: 50%;
     background-color: $placeholder-color;
-    background-image: url("../images/content/user.jpg");
+    background-image: url('../images/content/user.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 85px 113px;
@@ -129,9 +51,6 @@ export default {
     overflow: hidden;
     &:hover {
       opacity: 0.7;
-    }
-    &_drag {
-      background-color: gray;
     }
   }
   &__image {

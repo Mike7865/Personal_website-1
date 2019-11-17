@@ -21,81 +21,82 @@
 </template>
 
 <script>
+import ErrorTooltip from '../components/ErrorTooltip';
 export default {
   components: {
-    ErrorTooltip: () => import("./ErrorTooltip.vue")
+    ErrorTooltip,
   },
   props: {
     value: {
       type: String | Number,
-      default: ""
+      default: '',
     },
     label: {
       type: String,
-      default: ""
+      default: '',
     },
     maxValue: {
-      type: Number
+      type: Number,
     },
     minValue: {
-      type: Number
+      type: Number,
     },
     step: {
       type: Number,
-      default: 1
+      default: 1,
     },
     placeholder: {
       type: String,
-      default: ""
+      default: '',
     },
     errorMessage: {
       type: String,
-      default: ""
+      default: '',
     },
     readonly: {
       type: Boolean,
-      default: false
+      default: false,
     },
     type: {
       type: String,
-      default: "text"
+      default: 'text',
     },
     size: {
       type: String,
-      default: "default"
+      default: 'default',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     measure: {
       type: String,
-      default: ""
-    }
+      default: '',
+    },
   },
   computed: {
     listeners() {
       return {
         ...this.$listeners,
-        input: event => {
+        input: (event) => {
           if (!this.disabled) {
-            this.$emit("input", event.target.value);
+            this.$emit('input', event.target.value);
           }
-        }
+        },
       };
     },
     inputClass() {
       return {
         [`simple-input__control_${this.size}`]: true,
-        "simple-input__control_error": this.errorMessage
+        'simple-input__control_error': this.errorMessage,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .simple-input {
   position: relative;
   width: 100%;
@@ -143,7 +144,7 @@ export default {
   }
   &_disabled {
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;

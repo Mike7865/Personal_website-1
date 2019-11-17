@@ -16,69 +16,71 @@
 </template>
 
 <script>
+import ErrorTooltip from '../components/ErrorTooltip';
+import Icon from '../components/Icon';
 export default {
   components: {
-    ErrorTooltip: () => import("./ErrorTooltip.vue"),
-    Icon: () => import("./Icon.vue")
+    ErrorTooltip,
+    Icon,
   },
   props: {
     value: {
       type: String,
-      default: ""
+      default: '',
     },
     errorMessage: {
       type: String,
-      default: ""
+      default: '',
     },
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     icon: {
       type: String,
-      default: ""
+      default: '',
     },
     label: {
       type: String,
-      default: ""
+      default: '',
     },
     theme: {
       type: String,
-      default: "dark"
+      default: 'dark',
     },
     type: {
       type: String,
-      default: "text"
-    }
+      default: 'text',
+    },
   },
   computed: {
     listeners() {
       return {
         ...this.$listeners,
-        input: event => {
+        input: (event) => {
           if (!this.disabled) {
-            this.$emit("input", event.target.value);
+            this.$emit('input', event.target.value);
           }
-        }
+        },
       };
     },
     inputClass() {
       return {
-        "basic-input__control_dirty": this.value.length,
-        "basic-input__control_disabled": this.disabled,
-        "basic-input__control_invalid": this.errorMessage
+        'basic-input__control_dirty': this.value.length,
+        'basic-input__control_disabled': this.disabled,
+        'basic-input__control_invalid': this.errorMessage,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-@import "../../styles/mixins.pcss";
+@import '../../styles/mixins.pcss';
 .basic-input {
   position: relative;
   width: 100%;
