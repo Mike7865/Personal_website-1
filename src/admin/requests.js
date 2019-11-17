@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getToken, setAuthHttpHeaderToAxios, setToken } from './helpers/token';
 
-axios.defaults.baseURL = process.env.BASE_URL;
+axios.defaults.baseURL = "https://webdev-api.loftschool.com/";
 
 const token = getToken();
 if (token) setAuthHttpHeaderToAxios(axios, token);
