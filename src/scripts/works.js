@@ -1,13 +1,9 @@
 import Vue from "vue";
+import constants from "../styles/variables.json";
 
 const thumbs = {
   template: "#slider-thumbs",
-  props: ["works", "currentWork"],
-  computed: {
-    reversedWorks() {
-      return [...this.works].reverse();
-    }
-  }
+  props: ["works", "currentWork"]
 };
 
 const btns = {
@@ -17,7 +13,50 @@ const btns = {
 const display = {
   template: "#slider-display",
   components: { thumbs, btns },
-  props: ["works", "currentWork"]
+  props: ["works", "currentWork", "currentIndex"],
+  data() {
+    return {
+      windowWidth: 0,
+      offset: 0
+    };
+  },
+  watch: {
+    currentIndex(currentIndex) {
+      if (currentIndex < this.offset) {
+        this.offset = currentIndex;
+      } else if (currentIndex > this.offset + this.maxThumbsCount - 1) {
+        this.offset = currentIndex - this.maxThumbsCount + 1;
+      }
+    }
+  },
+  computed: {
+    maxThumbsCount() {
+      if (this.windowWidth < parseInt(constants["bp-phones"])) {
+        return 0;
+      }
+      if (this.windowWidth < parseInt(constants["bp-tablets"])) {
+        return 3;
+      }
+      if (this.windowWidth < parseInt(constants["bp-desktop-hd"])) {
+        return 3;
+      }
+      return 4;
+    }
+  },
+  methods: {
+    setWindowWidth() {
+      this.windowWidth = window.innerWidth;
+    }
+  },
+  mounted() {
+    this.setWindowWidth();
+  },
+  created() {
+    window.addEventListener("resize", this.setWindowWidth);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.setWindowWidth);
+  }
 };
 
 const tags = {
@@ -71,10 +110,10 @@ new Vue({
     handleSlide(direction) {
       switch (direction) {
         case "next":
-          this.currentIndex--;
+          this.currentIndex++;
           break;
         case "prev":
-          this.currentIndex++;
+          this.currentIndex--;
           break;
       }
     }

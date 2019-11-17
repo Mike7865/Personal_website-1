@@ -84,18 +84,20 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 32px 120px;
-  background-image: $primary-gradient;
   color: white;
   font-size: 18px;
   font-weight: 700;
   transition: background-image 0.2s ease;
   cursor: pointer;
+  border-radius: 35px 5px 35px 5px;
+  background-image: linear-gradient(to right, #9300e8, #4a00ed);
+  
   @include phones {
     width: 100%;
     padding: 24px 50px;
   }
   &:hover {
-    background-image: $reverse-gradient;
+    background-image: linear-gradient(to right, #bb00ff 0%, #5900ff 100%);
   }
   &_disabled {
     cursor: default;

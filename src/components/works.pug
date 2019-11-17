@@ -7,6 +7,7 @@
         display(
           :works="works"
           :current-work="currentWork"
+          :current-index="currentIndex"
           @choose-slide="chooseSlide($event)"
           @slide="handleSlide($event)"
         )
@@ -15,15 +16,16 @@
         )
     script(type="text/x-template")#slider-display
       .works-slider__display
-        .slider-display(data-slide="4")
+        .slider-display(:data-slide="currentIndex + 1")
           .slider-display__current-slide
             img(:src="currentWork.photo").slider-display__current-image
           .slider-display__thumbs
-            thumbs(
-              :works="works"
-              :current-work="currentWork"
-              @choose-slide="$emit('choose-slide', $event)"
-            )
+            .slider-display__thumbs-list(:style="`transform: translateY(-${offset*100/maxThumbsCount}%)`")
+              thumbs(
+                :works="works"
+                :current-work="currentWork"
+                @choose-slide="$emit('choose-slide', $event)"
+              )
           .slider-display__buttons
             btns(
               @slide="$emit('slide', $event)"
@@ -31,7 +33,7 @@
     script(type="text/x-template")#slider-thumbs
       .slider-thumbs
         .slider-thumbs__item(
-          v-for="work in reversedWorks"
+          v-for="work in works"
           :key="work.id"
           :class="{'slider-thumbs__item_active': work.id === currentWork.id}"
           @click="$emit('choose-slide', work.id)"
