@@ -58,7 +58,7 @@ export default {
       this.isLoading = false;
     },
     exitFromAdmin() {
-      location.href = 'https://tanyachickk.github.io/loftschool-course';
+      location.href = 'https://github.com/Mike7865/Personal_website-1';
     },
   },
 };

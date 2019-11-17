@@ -8,6 +8,9 @@ section.hero#main
       .hero__links
         +socials()
       button.hero__hamburger
+        - for (var i = 1; i <= 3; i++) {
+          .hamburger__line
+        - }
     .hero__content
       .user-info
         h1.user-info__desk Личный сайт #[br] веб-разработчика
