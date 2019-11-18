@@ -3,14 +3,16 @@ section.hero#main
     header.header.hero__header
       .hero__logo
         .logo МШ
+      button.hero__hamburger.hamburger
+        - for (var i = 1; i <= 3; i++) {
+          .hamburger__line
+        - }
+      .hero__sidebar
+        include sidebar
       .hero__menu
         include nav
       .hero__links
         +socials()
-      button.hero__hamburger
-        - for (var i = 1; i <= 3; i++) {
-          .hamburger__line
-        - }
     .hero__content
       .user-info
         h1.user-info__desk Личный сайт #[br] веб-разработчика

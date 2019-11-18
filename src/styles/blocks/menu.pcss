@@ -1,0 +1,41 @@
+.menu__list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 170px;
+
+  @include tablets {
+    flex-wrap: wrap;
+    padding-top: 50px;
+  }
+
+  @include phones {
+    justify-content: space-between;
+  }
+}
+
+.menu__item {
+  margin-right: 0;
+
+  &:last-child {
+    margin-right: -17px;
+  }
+}
+
+.menu__link {
+  text-decoration: none;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+
+  &:hover {
+    font-weight: 600;
+    color: $accent-color;
+  }
+
+  @include tablets {
+    color: #414c63;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 48px;
+  }
+}
