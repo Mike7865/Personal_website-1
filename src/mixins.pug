@@ -6,10 +6,19 @@ mixin icon(name, className)
 mixin image(path, className)
   img(src=require(`images/${path}`) class=className)
 
+
 mixin socials(mod)
-  - var icons =  ["insta", "vk", "github"] 
-    ul.socials
-      each item in icons
-        li.socials__item(class=`${mod ? 'socials__item_' + mod : ''}`)
-          a(href="").socials__link
-            +icon(`${item}`, `socials__icon  socials__icon_${item}`)
+  ul.socials
+    - var socials = [{ name: 'insta', url: 'https://www.instagram.com/mihail50055/?hl=ru' }, { name: 'vk', url: 'https://vk.com/id131803142' }, { name: 'github', url: 'https://github.com/Mike7865' }]
+    each item in socials
+      li.socials__item(class=`${mod ? 'socials__item_' + mod : ''}`)
+        a.socials__link(href=item.url target="_blank")
+          +icon(`${item.name}`,`socials__icon socials__icon_${item.name}`)
+
+mixin menu(mod)
+  nav.menu(class=( mod ? 'menu_' + mod : ''))
+    ul.menu__list
+      - var menu = [{ title: 'Главная', url: '#main' }, { title: 'Обо мне', url: '#about' }, { title: 'Навыки', url: '#skills' }, { title: 'Работы', url: '#works' }, { title: 'Отзывы', url: '#reviews' }, { title: 'Связаться', url: '#contacts' }]
+      each item in menu
+        li.menu__item
+          a.menu__link(href=item.url) #{item.title}

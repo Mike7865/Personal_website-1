@@ -42,7 +42,7 @@ export default {
     height: 200px;
     border-radius: 50%;
     background-color: $placeholder-color;
-    background-image: url('../images/content/user.jpg');
+    background-image: url('../images/content/man-user.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 85px 113px;
@@ -63,6 +63,7 @@ export default {
     height: 100%;
     object-fit: cover;
     object-position: center center;
+    fill: white;
   }
   &__file {
     display: none;

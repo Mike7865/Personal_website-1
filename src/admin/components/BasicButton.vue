@@ -102,7 +102,7 @@ export default {
   &_disabled {
     cursor: default;
     &:hover {
-      background-image: $primary-gradient;
+      background-image: linear-gradient(to right, #9300e8, #4a00ed);
     }
     &::after {
       content: '';
